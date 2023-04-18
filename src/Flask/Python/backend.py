@@ -1,17 +1,23 @@
 """
-* This is the main application file for the flask application
+* @Author: ArabianCoconut
+* @Version: 0.0.1 Alpha
+* @Description: This is the main application file for the flask application
 """
 from flask import Flask, render_template,request
 
 app = Flask(__name__)
 FILE_PATH=r'src\Bio\data.json'
 
-def start_app():
+def start_app(host,port,debug=None):
     """
     * This is the main function for the application
     * @return {Flask} app
     """
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    if bool(debug) is True:
+        app.run(host=host, port=port, debug=debug)
+    else:
+        print("Debug mode is disabled")
+        app.run(host=host, port=port, debug=False)
     return app
 
 
@@ -37,5 +43,6 @@ def upload():
             'message': 'File uploaded successfully'}
 
 
-
-start_app()
+# TO debug the application run the following command
+# python -m flask backend.py
+start_app(host="0.0.0.0", port=5000)
