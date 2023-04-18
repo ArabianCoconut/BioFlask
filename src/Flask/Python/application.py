@@ -3,7 +3,6 @@
 """
 from flask import Flask, render_template,request
 
-
 app = Flask(__name__)
 FILE_PATH=r'src\Bio\data.json'
 
@@ -18,7 +17,7 @@ def start_app():
 
 @app.route("/", methods=['GET'])
 def html():
-    """ Render the html page """
+    """ Renders the html page """
     return render_template('index.html')
 
 
@@ -36,6 +35,7 @@ def upload():
             outfile.close()
     return {'status': 'success',
             'message': 'File uploaded successfully'}
+
 
 
 start_app()
