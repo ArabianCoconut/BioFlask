@@ -13,5 +13,4 @@ function submit_button(){
     });
     xhr.send(body);
     open("http://localhost:5000/upload");
-    console.log(body);
 }
