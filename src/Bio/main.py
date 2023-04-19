@@ -1,5 +1,5 @@
 """
-* Bio python based on Python 3.11.x
+* Bio python based on Flask 3.11.x
 * This is simple python application for pairwise alignment.
 """
 import json
