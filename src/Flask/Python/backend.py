@@ -8,7 +8,7 @@ from flask import Flask, render_template,request
 app = Flask(__name__)
 FILE_PATH=r'src\Bio\data.json'
 
-def start_app(host,port,debug=None):
+def start_app(host,port,debug=bool()):
     """
     * This is the main function for the application
     * @return {Flask} app
@@ -44,5 +44,5 @@ def upload():
 
 
 # TO debug the application run the following command
-# python -m flask backend.py
+# python -m flask --app backend.py  run --debug
 start_app(host="0.0.0.0", port=5000)
