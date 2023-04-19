@@ -10,7 +10,10 @@ FILE_PATH=r'src\Bio\data.json'
 
 def start_app(host,port,debug=bool()):
     """
-    * This is the main function for the application
+    * This is the main function/config for the application
+    * @param {string} host
+    * @param {string} port
+    * @param {bool} debug
     * @return {Flask} app
     """
     if bool(debug) is True:
