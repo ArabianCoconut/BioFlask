@@ -4,8 +4,6 @@
 """
 import json
 
-import requests
-
 
 def load_json(json_stream):
     json.loads(json_stream)
