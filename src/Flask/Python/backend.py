@@ -3,12 +3,14 @@
 * @Version: 0.0.1 Alpha
 * @Description: This is the main application file for the flask application
 """
-from flask import Flask, render_template,request
+# from src.Bio.main import load_json
+from flask import Flask, render_template, request, redirect, url_for
+import src.Flask.Bio.main as main
 
 app = Flask(__name__)
-FILE_PATH=str(r'src\Bio\data.json')
 
-def start_app(host,port,debug=bool()):
+
+def start_app(host, port, debug=bool()):
     """
     * This is the main function/config for the application
     * @param {string} host
@@ -39,11 +41,10 @@ def upload():
     * @return {JSON} status
     """
     if request.method == 'POST':
-        with open(FILE_PATH, 'w+',encoding='utf-8') as outfile:
-            outfile.write(request.data.decode('utf-8'))
-            outfile.close()
-    return {'status': 'success',
-            'message': 'File uploaded successfully'}
+        data = request.data.decode('utf-8')
+        main.load_json(data)
+        return {"status": "success"}
+    return redirect(url_for('html', _method='GET'))
 
 
 # TO debug the application run the following command

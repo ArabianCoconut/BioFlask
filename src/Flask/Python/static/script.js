@@ -4,12 +4,12 @@ function clear_button(){
 }
 
 function submit_button(){
-    let mime="application/json";
+    const mime="application/json";
 
     const element = document.getElementById("text_area");
     //upload to server
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/upload",mime);
+    xhr.open("POST", "http://localhost:5000/upload", mime);
     const body =JSON.stringify({
         "Data": element.value
     });
