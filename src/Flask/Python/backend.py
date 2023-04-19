@@ -6,7 +6,7 @@
 from flask import Flask, render_template,request
 
 app = Flask(__name__)
-FILE_PATH=r'src\Bio\data.json'
+FILE_PATH=str(r'src\Bio\data.json')
 
 def start_app(host,port,debug=bool()):
     """
