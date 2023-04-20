@@ -1,4 +1,1 @@
-FROM ubuntu:latest
-LABEL authors="nukeb"
-
-ENTRYPOINT ["top", "-b"]
+# TODO: NOT WORKING

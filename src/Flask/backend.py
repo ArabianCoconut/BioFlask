@@ -3,14 +3,13 @@
 * @Version: 0.0.1 Alpha
 * @Description: This is the main application file for the flask application
 """
-# from src.Bio.main import load_json
 from flask import Flask, render_template, request, redirect, url_for
 import src.Bio.main as main
 
 app = Flask(__name__)
 
 
-def start_app(host, port, debug=bool()):
+def start_app(host, port, debug=bool()) -> app:
     """
     * This is the main function/config for the application
     * @param {string} host
