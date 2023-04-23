@@ -45,7 +45,6 @@ def upload():
         return {"status": "success"}
     return redirect(url_for('html', _method='GET'))
 
-
 # TO debug the application run the following command
 # python -m flask --app backend.py  run --debug
 start_app(host="0.0.0.0", port=5000)
