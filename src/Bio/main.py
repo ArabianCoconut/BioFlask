@@ -13,8 +13,8 @@ def load_json(json_stream):
     * @param {string} json_stream
     * @return {string} load_dump
     '''
-    Jload=json.loads(json_stream)
-    load_dump=sequence_alignment(Jload["target"],Jload["query"],Jload["mode"])
+    jload=json.loads(json_stream)
+    load_dump=sequence_alignment(jload["target"],jload["query"],jload["mode"])
     return load_dump
 
 def sequence_alignment(target:str, query:str,mode:str):
