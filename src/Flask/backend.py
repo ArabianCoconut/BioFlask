@@ -4,12 +4,12 @@
 * @Description: This is the main application file for the flask application
 """
 from flask import Flask, render_template, request, redirect, url_for
-import src.Bio.biofile as bio
+import biofile as bio
 
 app = Flask(__name__)
 
 
-def start_app(host, port, debug=bool()):
+def start_app(host, port, debug=bool()) -> Flask:
     """
     * This is the main function/config for the application
     * @param {string} host
@@ -26,7 +26,7 @@ def start_app(host, port, debug=bool()):
 
 
 @app.route("/", methods=['GET'])
-def html():
+def html() -> str:
     """ Renders the html page """
     return render_template('index.html')
 

@@ -7,6 +7,7 @@ import json
 from Bio.Align import PairwiseAligner
 
 
+
 def load_json(json_stream):
     '''
     * This function loads the json stream and returns the results
@@ -37,3 +38,5 @@ def sequence_alignment(target:str, query:str,mode:str):
 # ! Testing only will remove later.
 # test={"target":"ACCGGT","query":"ACG","mode":"local"}
 # load_json(json.dumps(test))
+print(__name__)
+print(__package__)
