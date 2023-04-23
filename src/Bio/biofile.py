@@ -29,7 +29,7 @@ def sequence_alignment(target:str, query:str,mode:str):
     for alignment in alignments:
         results.append({
             "mode": mode,
-            "score": alignment.score,
+            "score": alignment.score, # type: ignore
             "aligned": str(alignment),
         })
     return json.dumps(results)

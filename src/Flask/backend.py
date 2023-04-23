@@ -4,12 +4,12 @@
 * @Description: This is the main application file for the flask application
 """
 from flask import Flask, render_template, request, redirect, url_for
-import src.Bio.main as main
+import src.Bio.biofile as bio
 
 app = Flask(__name__)
 
 
-def start_app(host, port, debug=bool()) -> app:
+def start_app(host, port, debug=bool()):
     """
     * This is the main function/config for the application
     * @param {string} host
@@ -41,9 +41,10 @@ def upload():
     """
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        main.load_json(data)
+        bio.load_json(data)
         return {"status": "success"}
     return redirect(url_for('html', _method='GET'))
+
 
 # TO debug the application run the following command
 # python -m flask --app backend.py  run --debug
