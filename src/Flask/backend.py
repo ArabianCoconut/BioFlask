@@ -47,7 +47,7 @@ def upload():
     if request.method == 'POST':
         data = request.data.decode('utf-8')
         results(bio(json.loads(data)))
-    return redirect(url_for('uploaded'), code=307)
+    return redirect(url_for('uploaded', _method='GET'), code=307)
 
 
 @app.route("/uploaded", methods=['GET', 'POST'])
