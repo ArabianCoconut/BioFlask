@@ -4,6 +4,7 @@
 * @Description: This is the main application file for the flask application
 """
 import json
+import os
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
@@ -61,6 +62,12 @@ def uploaded():
 @app.route("/result", methods=['GET'])
 def results():
     return render_template('results.html')
+
+
+@app.route("/api/delete", methods=['POST', 'GET'])
+def delete():
+    os.remove("static/results.txt")
+    return redirect(url_for('html', _method='GET'))
 
 
 # TO debug the application run the following command

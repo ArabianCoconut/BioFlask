@@ -134,5 +134,5 @@ dmypy.json
 *.iml
 
 # Project files
-src/Flask/static/results.txt
+.src/Flask/static/results.txt
 

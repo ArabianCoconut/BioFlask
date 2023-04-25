@@ -1,6 +1,6 @@
 
-
-
+// Change this to your server link
+const server = "http://localhost:5000";
 
 function clear_button(){
     const element = document.getElementById("query");
@@ -23,14 +23,21 @@ function submit_button(){
         }).then(response => response.json());
 
 
-        window.location.href = "http://localhost:5000/api/uploaded";
+        window.location.href = server+"/api/uploaded";
 }
 
 function get_results(){
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:5000/result");
+    xhr.open("GET", server+"/result");
     xhr.send();
-    open("http://localhost:5000/result");
+    open(server+"/result");
 }
 
+function delete_file(){
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", server+"/api/delete");
+    xhr.send();
+    window.alert("File deleted successfully! redirecting to home page...");
+    window.location.href = server+"/";
+}
 

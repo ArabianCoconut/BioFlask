@@ -35,5 +35,5 @@ def sequence_alignment(target: str, query: str):
         f.close()
 
 # ! Testing only will remove later.
-test={"Target":"AGTCAAAACC","Query":"ACG"}
-load_json(json.dumps(test))
+# test={"Target":"AGTCAAAACC","Query":"ACG"}
+# load_json(json.dumps(test))
