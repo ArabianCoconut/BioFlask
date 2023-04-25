@@ -13,9 +13,10 @@ def load_json(json_stream):
     * @param {string} json_stream
     * @return {string} load_dump
     """
-    jload = json.dumps(json_stream)
-    load_dump = sequence_alignment(jload[0], jload[1])
-    return load_dump
+    j_load = json.loads(json_stream)
+    sequence_alignment(j_load['Target'], j_load['Query'])
+    # print(type(load_dump))
+    return 0
 
 
 def sequence_alignment(target: str, query: str):
@@ -27,13 +28,12 @@ def sequence_alignment(target: str, query: str):
     """
     alignments = PairwiseAligner().align(target, query, "+")
     results = []
-    for alignment in alignments:
-        results.append({
-            "score": alignment.score,  # type: ignore
-            "aligned": str(alignment),
-        })
-    return json.dumps(results)
+    with open("static/results.txt", "w") as f:
+        for a in alignments:
+            results.append(a)
+            f.write(str(a))
+        f.close()
 
 # ! Testing only will remove later.
-# test={"target":"ACCGGT","query":"ACG","mode":"local"}
-# load_json(json.dumps(test))
+test={"Target":"AGTCAAAACC","Query":"ACG"}
+load_json(json.dumps(test))

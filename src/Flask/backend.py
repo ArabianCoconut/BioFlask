@@ -46,11 +46,11 @@ def upload():
     """
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        results(bio(json.loads(data)))
-    return redirect(url_for('uploaded', _method='GET'), code=307)
+        bio(data)
+        return redirect(url_for('uploaded', _method='GET'))
 
 
-@app.route("/uploaded", methods=['GET', 'POST'])
+@app.route("/api/uploaded", methods=['GET'])
 def uploaded():
     """
     * This is the route for the uploaded page
@@ -58,15 +58,9 @@ def uploaded():
     return render_template('upload.html')
 
 
-@app.route("/results", methods=['GET'])
-def results(result):
-    result_data = json.loads(result)
-    for alignment in result_data:
-        result_data.append({
-            "score": alignment['score'],
-            "aligned": alignment['aligned'],
-        })
-    return render_template('results.html', results=result_data)
+@app.route("/result", methods=['GET'])
+def results():
+    return render_template('results.html')
 
 
 # TO debug the application run the following command

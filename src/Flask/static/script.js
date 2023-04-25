@@ -1,3 +1,7 @@
+
+
+
+
 function clear_button(){
     const element = document.getElementById("query");
     element.value = "";
@@ -13,16 +17,20 @@ function submit_button(){
         const data = {"Query":query.value,"Target":target.value};
         fetch("/upload", {
             method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
+            headers: {"Content-Type": "application/json"},
+            redirect: "follow",
             body: JSON.stringify(data)
-        });
-    }
+        }).then(response => response.json());
+
+
+        window.location.href = "http://localhost:5000/api/uploaded";
+}
 
 function get_results(){
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:5000/results");
+    xhr.open("GET", "http://localhost:5000/result");
     xhr.send();
-    open("http://localhost:5000/results");
+    open("http://localhost:5000/result");
 }
+
+
