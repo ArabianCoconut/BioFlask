@@ -10,7 +10,7 @@
         <h1>Bio Flask</h1>
         <h2>Powered by Flask</h2>
         <h3>Written by ArabianCoconut</h3>
-        <p id="instructions">Instructions on how to get the result</p>
+        <p id="instructions" style="font-weight: bold">Instructions on how to get the result</p>
         <ol>
             <li>Enter Target and Query sequences</li>
             <li>Click Submit</li>
@@ -25,8 +25,7 @@
         <button onclick="get_results()">Get Result</button>
         <button onclick="clear_button()">Clear</button>
         <script src="{{url_for('static', filename='script.js')}}"></script>
-        <p style="font-weight: bold">NOTE: Your sequences are stored on the server. Do not use for Online
-        only use on local premises as a server.
+        <p style="font-weight: bold">NOTE: Your sequences are stored on the server. Use Delete button to delete them.
         </p>
     
     </body>
