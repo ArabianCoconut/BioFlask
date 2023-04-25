@@ -133,3 +133,6 @@ dmypy.json
 .idea/
 *.iml
 
+# Project files
+src/Flask/static/results.txt
+
