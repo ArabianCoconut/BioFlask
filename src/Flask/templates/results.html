@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results Page</title>
+</head>
+<body>
+<h1 style="text-align: center">Results of your Sequence alignment</h1>
+<!DOCTYPE html>
+
+  <table aria-describedby="Sequence Alignment Results">
+    <thead>
+      <tr>
+        <th>Mode</th>
+        <th>Score</th>
+        <th>Aligned</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+      <tr>
+        <td>{{ result['mode'] }}</td>
+        <td>{{ result['score'] }}</td>
+        <td>{{ result['aligned'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

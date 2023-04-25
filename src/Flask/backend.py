@@ -3,10 +3,15 @@
 * @Version: 0.0.1 Alpha
 * @Description: This is the main application file for the flask application
 """
+import json
+
 from flask import Flask, render_template, request, redirect, url_for
-import biofile as bio
+from flask_cors import CORS
+
+from Bioprocess import load_json as bio
 
 app = Flask(__name__)
+CORS(app)
 
 
 def start_app(host, port, debug=bool()) -> Flask:
@@ -26,7 +31,7 @@ def start_app(host, port, debug=bool()) -> Flask:
 
 
 @app.route("/", methods=['GET'])
-def html() -> str:
+def html():
     """ Renders the html page """
     return render_template('index.html')
 
@@ -41,9 +46,27 @@ def upload():
     """
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        bio.load_json(data)
-        return {"status": "success"}
-    return redirect(url_for('html', _method='GET'))
+        results(bio(json.loads(data)))
+    return redirect(url_for('uploaded'), code=307)
+
+
+@app.route("/uploaded", methods=['GET', 'POST'])
+def uploaded():
+    """
+    * This is the route for the uploaded page
+    """
+    return render_template('upload.html')
+
+
+@app.route("/results", methods=['GET'])
+def results(result):
+    result_data = json.loads(result)
+    for alignment in result_data:
+        result_data.append({
+            "score": alignment['score'],
+            "aligned": alignment['aligned'],
+        })
+    return render_template('results.html', results=result_data)
 
 
 # TO debug the application run the following command
