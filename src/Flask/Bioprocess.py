@@ -34,6 +34,4 @@ def sequence_alignment(target: str, query: str):
             f.write(str(a))
         f.close()
 
-# ! Testing only will remove later.
-# test={"Target":"AGTCAAAACC","Query":"ACG"}
-# load_json(json.dumps(test))
+    return 0
