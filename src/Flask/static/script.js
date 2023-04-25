@@ -7,17 +7,18 @@ function clear_button(){
 }
 
 function submit_button(){
-    const query = document.getElementById("query");
-    const target = document.getElementById("target");
-    //upload to server
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/upload");
-    const body =JSON.stringify({
-        "Query": query.value,
-        "Target": target.value,
-    });
-    xhr.send(body);
-}
+        const query = document.getElementById("query");
+        const target = document.getElementById("target");
+        //upload to server
+        const data = {"Query":query.value,"Target":target.value};
+        fetch("/upload", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+    }
 
 function get_results(){
     const xhr = new XMLHttpRequest();
