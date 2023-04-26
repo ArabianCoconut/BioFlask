@@ -3,7 +3,6 @@
 * @Version: 0.0.1 Alpha
 * @Description: This is the main application file for the flask application
 """
-import json
 import os
 
 from flask import Flask, render_template, request, redirect, url_for
