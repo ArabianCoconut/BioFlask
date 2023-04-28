@@ -4,7 +4,6 @@
 * @Description: This is the main application file for the flask application
 """
 import os
-
 from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
 

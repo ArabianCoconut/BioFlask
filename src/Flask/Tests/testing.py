@@ -1,9 +1,5 @@
 import json
 from Bio.Align import PairwiseAligner
-from Flask.Bioprocess import load_json as bio
-
-test = "{\"Target\":\"ACCGGT\",\"Query\":\"ACG\"}"
-
 
 def load_json(json_stream):
     """
@@ -31,6 +27,3 @@ def sequence_alignment(target: str, query: str):
             "aligned": str(alignment),
         })
     return json.dumps(results)
-
-
-print(type(json.loads(load_json(test))))

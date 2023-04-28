@@ -35,3 +35,4 @@ def sequence_alignment(target: str, query: str):
         f.close()
 
     return 0
+
