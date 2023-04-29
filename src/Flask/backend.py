@@ -4,10 +4,9 @@
 * @Description: This is the main application file for the flask application
 """
 import os
+import Bioprocess as Bio
 from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
-
-from Bioprocess import load_json as bio
 
 app = Flask(__name__)
 CORS(app)
@@ -21,6 +20,8 @@ def start_app(host, port, debug=bool()) -> Flask:
     * @param {bool} debug
     * @return {Flask} app
     """
+    Bio.qrcode(hostname=None, port=None)
+
     if bool(debug) is True:
         app.run(host=host, port=port, debug=debug)
     else:
@@ -45,7 +46,7 @@ def upload():
     """
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        bio(data)
+        Bio.load_json(data)
         return redirect(url_for('uploaded', _method='GET'))
 
 
@@ -60,6 +61,11 @@ def uploaded():
 @app.route("/result", methods=['GET'])
 def results():
     return render_template('results.html')
+
+
+@app.route("/api/results", methods=['GET'])
+def results_api():
+    return redirect(url_for('static', filename='results.txt'))
 
 
 @app.route("/api/delete", methods=['POST', 'GET'])

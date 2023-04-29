@@ -4,6 +4,7 @@
 * @Version: 0.0.1 Alpha
 """
 import json
+import requests
 from Bio.Align import PairwiseAligner
 
 
@@ -33,6 +34,12 @@ def sequence_alignment(target: str, query: str):
             results.append(a)
             f.write(str(a))
         f.close()
-
     return 0
 
+
+def qrcode(hostname, port):
+    text = "http://" + hostname + ":" + str(port) + "/api/results"
+    req = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8')
+    with open('static/qr.png', 'wb') as f:
+        f.write(req.content)
+        f.close()
