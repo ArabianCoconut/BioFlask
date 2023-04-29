@@ -41,3 +41,16 @@ function delete_file(){
     window.location.href = server+"/";
 }
 
+function togglePopup() {
+    if (popupHolder.style.display === "none") {
+    popupHolder.style.display = "block";
+    } else {
+    popupHolder.style.display = "none";
+    }
+}
+
+window.onclick = function(event) {
+    if (event.target == popupHolder) {
+        togglePopup();
+    }
+}
