@@ -71,6 +71,7 @@ def results_api():
 @app.route("/api/delete", methods=['POST', 'GET'])
 def delete():
     os.remove("static/results.txt")
+    os.remove("static/qr.png")
     return redirect(url_for('html', _method='GET'))
 
 
