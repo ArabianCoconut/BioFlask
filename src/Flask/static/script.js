@@ -50,7 +50,7 @@ function togglePopup() {
 }
 
 window.onclick = function(event) {
-    if (event.target == popupHolder) {
+    if (event.target === popupHolder) {
         togglePopup();
     }
 }

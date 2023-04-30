@@ -39,7 +39,7 @@ def sequence_alignment(target: str, query: str):
 
 def qrcode(hostname, port):
     text = "http://" + hostname + ":" + str(port) + "/api/results"
-    req = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8')
-    with open('static/qr.png', 'wb') as f:
+    req = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8',timeout=60)
+    with open('static/qr.png', 'wb+') as f:
         f.write(req.content)
         f.close()
