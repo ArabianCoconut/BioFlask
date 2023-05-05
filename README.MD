@@ -12,7 +12,7 @@
 
 1. Clone the repository
 2. Install the requirements
-3. Run the backend.py file
+3. Run the main.py file
 4. Open the browser and go to <http://localhost:5000>
 5. Enjoy!
 
