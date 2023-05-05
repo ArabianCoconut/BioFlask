@@ -3,7 +3,9 @@
 * @Author: ArabianCoconut
 * @Version: 0.0.1 Alpha
 """
+from ast import List
 import json
+from typing import Any
 import requests
 from Bio.Align import PairwiseAligner
 
@@ -26,19 +28,23 @@ def sequence_alignment(target: str, query: str):
     * @param {string} query, the query sequence
     * @param {string} mode, the mode of alignment (global,local)
     """
-    alignments = PairwiseAligner().align(target, query, "+")
-    results = []
-    with open("static/results.txt", "w") as f:
-        for a in alignments:
-            results.append(a)
-            f.write(str(a))
-        f.close()
+    alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
+    results: List() = []
+    with open("static/results.txt", "w",encoding='UTF-8') as _f:
+        for _a in alignments:
+            results.append(_a)
+            _f.write(str(_a))
+        _f.close()
     return 0
 
 
-def qrcode(hostname, port):
-    text = "http://" + hostname + ":" + str(port) + "/api/results"
-    req = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8',timeout=60)
-    with open('static/qr.png', 'wb+') as f:
-        f.write(req.content)
-        f.close()
+def QRcode(hostname, port):
+    '''
+    * This function generates the QR code from google chart API
+    * @param {string} hostname, the hostname of the server
+    * @param {string} port, the port of the server
+    '''
+    text: Any = "http://" + hostname + ":" + str(port) + "/api/results"
+    req: requests = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8',timeout=60)
+    with open('static/qr.png', 'wb+') as _f:
+        _f.write(req.content)

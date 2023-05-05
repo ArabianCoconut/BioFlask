@@ -20,7 +20,7 @@ def start_app(host, port, debug=bool()) -> Flask:
     * @param {bool} debug
     * @return {Flask} app
     """
-    Bio.qrcode(hostname=host, port=port)
+    Bio.QRcode(hostname=host, port=port)
 
     if bool(debug) is True:
         app.run(host=host, port=port, debug=debug)
