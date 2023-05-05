@@ -16,7 +16,7 @@ def load_json(json_stream):
     * @param {string} json_stream
     * @return {string} load_dump
     """
-    j_load = json.loads(json_stream)
+    j_load: Any = json.loads(json_stream)
     sequence_alignment(j_load['Target'], j_load['Query'])
     return 0
 
@@ -34,7 +34,6 @@ def sequence_alignment(target: str, query: str):
         for _a in alignments:
             results.append(_a)
             _f.write(str(_a))
-        _f.close()
     return 0
 
 
