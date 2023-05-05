@@ -16,7 +16,6 @@ def load_json(json_stream):
     """
     j_load = json.loads(json_stream)
     sequence_alignment(j_load['Target'], j_load['Query'])
-    # print(type(load_dump))
     return 0
 
 
