@@ -5,7 +5,6 @@
 """
 from ast import List
 import json
-from typing import Any
 import requests
 from Bio.Align import PairwiseAligner
 
@@ -16,7 +15,7 @@ def load_json(json_stream):
     * @param {string} json_stream
     * @return {string} load_dump
     """
-    j_load: Any = json.loads(json_stream)
+    j_load: object = json.loads(json_stream)
     sequence_alignment(j_load['Target'], j_load['Query'])
     return 0
 
@@ -37,13 +36,15 @@ def sequence_alignment(target: str, query: str):
     return 0
 
 
-def qr_code(hostname, port):
+async def qr_code(hostname, port):
     '''
     * This function generates the QR code from google chart API
     * @param {string} hostname, the hostname of the server
     * @param {string} port, the port of the server
     '''
-    text: Any = "http://" + hostname + ":" + str(port) + "/api/results"
-    req: requests = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8',timeout=60)
+    text: str = "http://" + hostname + ":" + str(port) + "/api/results"
+    url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
+    encoding = "&choe=UTF-8"
+    req: object = requests.get( url + text + encoding, timeout=60)
     with open('static/qr.png', 'wb+') as _f:
         _f.write(req.content)
