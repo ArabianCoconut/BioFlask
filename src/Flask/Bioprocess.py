@@ -29,10 +29,10 @@ def sequence_alignment(target: str, query: str):
     '''
     alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
     results: List() = []
-    with open("static/results.txt", "w",encoding='UTF-8') as _f:
+    with open("static/results.txt", "w",encoding='UTF-8') as file:
         for _a in alignments:
             results.append(_a)
-            _f.write(str(_a))
+            file.write(str(_a))
     return 0
 
 
@@ -46,6 +46,6 @@ async def qr_code(hostname, port):
     url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
     encoding = "&choe=UTF-8"
     req: object = requests.get( url + text + encoding, timeout=60)
-    with open('static/qr.png', 'wb+') as _f:
-        _f.write(req.content)
+    with open('static/qr.png', 'wb+') as file:
+        file.write(req.content)
     return 0
