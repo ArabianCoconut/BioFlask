@@ -36,7 +36,7 @@ def sequence_alignment(target: str, query: str):
     return 0
 
 
-async def qr_code(hostname, port):
+def qr_code(hostname, port):
     '''
     * This function generates the QR code from google chart API
     * @param {string} hostname, the hostname of the server
@@ -49,3 +49,5 @@ async def qr_code(hostname, port):
     with open('static/qr.png', 'wb+') as file:
         file.write(req.content)
     return 0
+
+# qr_code("localhost", 5000)

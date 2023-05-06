@@ -5,6 +5,11 @@ h1,h2,h3{
     text-align: center;
 }
 
+#options{
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+}
 .popup-holder {
     display: none;
     position: fixed;

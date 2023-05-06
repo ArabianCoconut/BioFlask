@@ -20,8 +20,7 @@ def start_app(host, port, debug=bool()) -> Flask:
     * @param {bool} debug
     * @return {Flask} app
     '''
-    Bio.qr_code(hostname=host, port=port)
-
+    Bio.qr_code(host, port)
     if bool(debug) is True:
         app.run(host=host, port=port, debug=debug)
     else:
@@ -47,16 +46,7 @@ def upload():
     if request.method == 'POST':
         data: str = request.data.decode('utf-8')
         Bio.load_json(data)
-        return redirect(url_for('uploaded', _method='GET'))
-
-# !To be removed
-@app.route("/api/uploaded", methods=['GET'])
-def uploaded():
-    '''
-    * This is the route for the uploaded page
-    '''
-    return render_template('upload.html')
-
+        return redirect(url_for('html', _method='GET'))
 
 @app.route("/result", methods=['GET'])
 def results():
@@ -79,11 +69,13 @@ def delete():
     '''
     * This is the route for the delete page
     '''
-    os.remove("static/results.txt")
-    os.remove("static/qr.png")
+    if os.path.exists("static/results.txt") or os.path.exists("static/qr.png"):
+        os.remove("static/results.txt")
+        os.remove("static/qr.png")
+        
+    
     return redirect(url_for('html', _method='GET'))
-
 
 # TO debug the application run the following command
 # python -m flask --app backend.py  run --debug
-start_app(host="0.0.0.0", port=5000, debug=False)
+start_app(host="0.0.0.0", port=5000, debug=True)

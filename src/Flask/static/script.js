@@ -10,6 +10,14 @@ function clear_button(){
 
 }
 
+function example_text(){
+    const element = document.getElementById("query");
+    element.value = "ACTGCT";
+    const element2 = document.getElementById("target");
+    element2.value = "ACTGCC";
+}
+
+
 function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
@@ -22,9 +30,7 @@ function submit_button(){
             body: JSON.stringify(data)
         }).then(response => response.json())
         .catch(error => console.log("Error: ", error));
-
-        //! To be removed
-        window.location.href = server+"/api/uploaded"; 
+        window.alert("Sequence submitted successfully!");
 }
 
 function get_results(){
@@ -38,8 +44,17 @@ function delete_file(){
     const xhr = new XMLHttpRequest();
     xhr.open("GET", server+"/api/delete");
     xhr.send();
-    window.alert("File deleted successfully! redirecting to home page...");
-    window.location.href = server+"/";
+    if(window.location.href === server+"/")
+    {
+        window.alert("File deleted successfully!");
+        window.location.reload();
+    }
+        else
+    {
+        window.alert("File deleted successfully! redirecting to home page...");
+        window.location.href = server+"/";
+    }
+
 }
 
 function togglePopup() {
@@ -53,5 +68,22 @@ function togglePopup() {
 window.onclick = function(event) {
     if (event.target === popupHolder) {
         togglePopup();
+    }
+}
+
+function handle(elem){
+    switch (elem.value) {
+        case 'example_text':
+            example_text();
+            break;
+        case 'get_results':
+            get_results();
+            break;
+        case 'clear_button':
+            clear_button();
+            break;
+        case 'delete_file':
+            delete_file();
+            break;
     }
 }
