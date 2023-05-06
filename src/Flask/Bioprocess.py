@@ -49,5 +49,4 @@ def qr_code(hostname, port):
     with open('static/qr.png', 'wb+') as file:
         file.write(req.content)
     return 0
-
-# qr_code("localhost", 5000)
+    
