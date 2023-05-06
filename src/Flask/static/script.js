@@ -23,8 +23,8 @@ function submit_button(){
         }).then(response => response.json())
         .catch(error => console.log("Error: ", error));
 
-
-        window.location.href = server+"/api/uploaded";
+        //! To be removed
+        window.location.href = server+"/api/uploaded"; 
 }
 
 function get_results(){
