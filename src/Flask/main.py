@@ -49,7 +49,7 @@ def upload():
         Bio.load_json(data)
         return redirect(url_for('uploaded', _method='GET'))
 
-
+# !To be removed
 @app.route("/api/uploaded", methods=['GET'])
 def uploaded():
     '''
