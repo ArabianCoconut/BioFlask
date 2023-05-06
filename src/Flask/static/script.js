@@ -20,7 +20,8 @@ function submit_button(){
             headers: {"Content-Type": "application/json"},
             redirect: "follow",
             body: JSON.stringify(data)
-        }).then(response => response.json());
+        }).then(response => response.json())
+        .catch(error => console.log("Error: ", error));
 
 
         window.location.href = server+"/api/uploaded";
