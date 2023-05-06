@@ -135,4 +135,5 @@ dmypy.json
 
 # Project files
 .src/Flask/static/results.txt
+Flask.code-workspace
 
