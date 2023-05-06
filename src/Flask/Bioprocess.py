@@ -1,8 +1,8 @@
-"""
+'''
 * @Description: Bio python based on Flask 3.11.x and Flask application.
 * @Author: ArabianCoconut
-* @Version: 0.0.1 Alpha
-"""
+* @Version: Alpha build
+'''
 from ast import List
 import json
 import requests
@@ -10,23 +10,23 @@ from Bio.Align import PairwiseAligner
 
 
 def load_json(json_stream):
-    """
+    '''
     * This function loads the json stream and returns the results
     * @param {string} json_stream
     * @return {string} load_dump
-    """
+    '''
     j_load: object = json.loads(json_stream)
     sequence_alignment(j_load['Target'], j_load['Query'])
     return 0
 
 
 def sequence_alignment(target: str, query: str):
-    """
+    '''
     * This function performs the sequence alignment
     * @param {string} target, the target sequence
     * @param {string} query, the query sequence
     * @param {string} mode, the mode of alignment (global,local)
-    """
+    '''
     alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
     results: List() = []
     with open("static/results.txt", "w",encoding='UTF-8') as _f:
