@@ -48,3 +48,4 @@ async def qr_code(hostname, port):
     req: object = requests.get( url + text + encoding, timeout=60)
     with open('static/qr.png', 'wb+') as _f:
         _f.write(req.content)
+    return 0
