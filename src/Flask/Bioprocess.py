@@ -20,7 +20,7 @@ def load_json(json_stream):
     return 0
 
 
-def sequence_alignment(target: str, query: str):
+def sequence_alignment(target: str, query: str, mode: str):
     '''
     * This function performs the sequence alignment
     * @param {string} target, the target sequence
