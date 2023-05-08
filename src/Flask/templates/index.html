@@ -11,14 +11,22 @@
         <h2>Powered by Flask</h2>
         <h3>Written by ArabianCoconut</h3>
         <p id="instructions" style="font-weight: bold">Instructions on how to use:</p>
-        <ol>
+        <ol id="instructions">
             <li>Enter Target and Query sequences;Choose example for demo and click submit</li>
             <li>To submit sequences click on submit</li>
             <li>Then an alert pop will appear confirming submission</li>
             <li>From the drop down menu click "Get Result" and then view your results</li>
             <li>Click Generate QR code to view on mobile</li>
         </ol>
-        <label>Pairwise Alignment:</label><br>
+        <div class="mode">
+            <label>Choose Mode:</label>
+            <select id="select_mode">
+                <option value="none">None</option>
+                <option value="global">Global</option>
+                <option value="local">Local</option>
+            </select>
+        </div><br>
+        <label>Pairwise Alignment</label><br>
         <label for="query"></label><textarea id="query" rows="10" cols="50" placeholder="Enter Query Sequence."></textarea>
         <label for="target"></label><textarea id="target" rows="10" cols="50" placeholder="Enter Target Sequence"></textarea><br>
         

@@ -134,6 +134,6 @@ dmypy.json
 *.iml
 
 # Project files
-.src/Flask/static/results.txt
 Flask.code-workspace
-
+src/Flask/static/qr.png
+src/Flask/static/results.txt

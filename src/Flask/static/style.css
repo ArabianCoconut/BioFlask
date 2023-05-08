@@ -5,9 +5,19 @@ h1,h2,h3{
     text-align: center;
 }
 
+#instructions{
+    font-size: large;
+}
+#select_mode{
+    text-align-last: center;
+    border-radius: 10px;
+    width: 150px;
+
+}
+
 #options{
     border-radius: 10px;
-    text-align: left;
+    text-align-last: center;
     width: 150px;
 }
 .popup-holder {

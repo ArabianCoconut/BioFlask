@@ -16,6 +16,7 @@ def load_json(json_stream):
     * @return {string} load_dump
     '''
     j_load: object = json.loads(json_stream)
+    print(j_load) #! Debug
     sequence_alignment(j_load['Target'], j_load['Query'], j_load['Mode'])
     return 0
 
@@ -27,6 +28,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     * @param {string} query, the query sequence
     * @param {string} mode, the mode of alignment (global,local)
     '''
+    mode=mode.lower() #! Debug
     alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
     results: List() = []
     with open("static/results.txt", "w",encoding='UTF-8') as file:
