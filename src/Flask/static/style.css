@@ -88,12 +88,16 @@ h1,h2,h3{
 
 }
 
-.textarea_box_container{
-    background-color: aqua;
-    width: fit-content;
-    height: fit-content;
+.textarea_box_container {
+    width: max-content;
+    height: max-content;
     display: flex;
     flex-direction: row;
+}
+
+@media (max-width: 600px) { .textarea_box_container {
+    flex-direction: column;
+    }
 }
 #col1{
     width: fit-content;
@@ -106,6 +110,6 @@ h1,h2,h3{
     height: fit-content;
     stroke: black;
     stroke-width: 5px;
-    padding-left: 5px;
+    padding-left: 1px;
 }
 
