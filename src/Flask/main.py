@@ -12,6 +12,8 @@ app = Flask(__name__)
 CORS(app)
 
 
+
+
 def start_app(host, port, debug=bool()) -> Flask:
     '''
     * This is the main function/config for the application
@@ -48,7 +50,7 @@ def upload():
         Bio.load_json(data)
         return redirect(url_for('html', _method='GET'))
 
-@app.route("/result", methods=['GET'])
+@app.route("/results", methods=['GET'])
 def results():
     '''
     * This is the route for the results page
@@ -64,7 +66,7 @@ def results_api():
     return redirect(url_for('static', filename='results.txt'))
 
 
-@app.route("/api/delete", methods=['POST', 'GET'])
+@app.route("/api/delete", methods=['POST'])
 def delete():
     '''
     * This is the route for the delete page
@@ -72,10 +74,8 @@ def delete():
     if os.path.exists("static/results.txt") or os.path.exists("static/qr.png"):
         os.remove("static/results.txt")
         os.remove("static/qr.png")
-        
-    
     return redirect(url_for('html', _method='GET'))
 
 # TO debug the application run the following command
 # python main.py
-start_app(host="0.0.0.0", port=5000, debug=False)
+
