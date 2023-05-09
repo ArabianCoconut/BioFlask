@@ -78,4 +78,4 @@ def delete():
 
 # TO debug the application run the following command
 # python main.py
-start_app(host="0.0.0.0", port=5000, debug=True)
+start_app(host="0.0.0.0", port=5000, debug=False)
