@@ -59,7 +59,7 @@ def results():
 @app.route("/api/results", methods=['GET'])
 def results_api():
     '''
-    * This is the route for the results page
+    * This is the route for the results text file.
     '''
     return redirect(url_for('static', filename='results.txt'))
 
@@ -78,4 +78,4 @@ def delete():
 
 # TO debug the application run the following command
 # python main.py
-start_app(host="0.0.0.0", port=5000, debug=True)
+start_app(host="0.0.0.0", port=5000, debug=False)
