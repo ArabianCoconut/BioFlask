@@ -1,6 +1,6 @@
 
 // Change this to your server link
-const server = "http://localhost:5000";
+// const server = "http://localhost:5000";
 
 function clear_button(){
     const element = document.getElementById("query");
@@ -45,17 +45,14 @@ function submit_button(){
 }
 
 function get_results(){
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", server+"/result");
-    xhr.send();
-    open(server+"/result");
+    open("/results");
 }
 
 function delete_file(){
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", server+"/api/delete");
+    xhr.open("POST", "/api/delete");
     xhr.send();
-    if(window.location.href === server+"/")
+    if(window.location.href === "/")
     {
         window.alert("File deleted successfully!");
         window.location.reload();
@@ -63,7 +60,7 @@ function delete_file(){
         else
     {
         window.alert("File deleted successfully! redirecting to home page...");
-        window.location.href = server+"/";
+        window.location.href = "/";
     }
 
 }
