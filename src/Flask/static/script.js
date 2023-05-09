@@ -1,7 +1,3 @@
-
-// Change this to your server link
-// const server = "http://localhost:5000";
-
 function clear_button(){
     const element = document.getElementById("query");
     element.value = "";
