@@ -59,7 +59,7 @@ def results():
 @app.route("/api/results", methods=['GET'])
 def results_api():
     '''
-    * This is the route for the results page
+    * This is the route for the results text file.
     '''
     return redirect(url_for('static', filename='results.txt'))
 
