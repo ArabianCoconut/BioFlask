@@ -14,7 +14,6 @@ function example_text(){
 }
 
 
-
 function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
