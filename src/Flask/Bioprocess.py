@@ -27,7 +27,9 @@ def sequence_alignment(target: str, query: str, mode: str):
     * @param {string} query, the query sequence
     * @param {string} mode, the mode of alignment (global,local)
     '''
-    alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
+    alignments: object = PairwiseAligner()
+    alignments.mode = mode
+    alignments=alignments.align(target, query)
     results: List() = []
     with open("static/results.txt", "w",encoding='UTF-8') as file:
         for _a in alignments:

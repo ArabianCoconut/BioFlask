@@ -23,7 +23,8 @@ function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
         const _mode = document.getElementById("select_mode");
-        const success=window.alert("Sequence submission uploaded!"+"\n" +"Click on 'Get Results' to view results under options.");
+        const success=window.alert("Sequence submission uploaded!"+"\n" +
+        "Click on 'Get Results' to view results under options.");
         //upload to server
         const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
         fetch("/upload", {

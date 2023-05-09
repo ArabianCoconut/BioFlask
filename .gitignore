@@ -137,3 +137,5 @@ dmypy.json
 Flask.code-workspace
 src/Flask/static/qr.png
 src/Flask/static/results.txt
+src/Flask/Tests/test.html
+src/Flask/Tests/test.html
