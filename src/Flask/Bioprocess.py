@@ -1,39 +1,40 @@
-"""
+'''
 * @Description: Bio python based on Flask 3.11.x and Flask application.
 * @Author: ArabianCoconut
-* @Version: 0.0.1 Alpha
-"""
+* @Version: Alpha build
+'''
 from ast import List
 import json
-from typing import Any
 import requests
 from Bio.Align import PairwiseAligner
 
 
 def load_json(json_stream):
-    """
+    '''
     * This function loads the json stream and returns the results
     * @param {string} json_stream
     * @return {string} load_dump
-    """
-    j_load: Any = json.loads(json_stream)
-    sequence_alignment(j_load['Target'], j_load['Query'])
+    '''
+    j_load: object = json.loads(json_stream)
+    sequence_alignment(j_load['Target'], j_load['Query'], j_load['Mode'])
     return 0
 
 
-def sequence_alignment(target: str, query: str):
-    """
+def sequence_alignment(target: str, query: str, mode: str):
+    '''
     * This function performs the sequence alignment
     * @param {string} target, the target sequence
     * @param {string} query, the query sequence
     * @param {string} mode, the mode of alignment (global,local)
-    """
-    alignments: PairwiseAligner = PairwiseAligner().align(target, query, "+")
+    '''
+    alignments: object = PairwiseAligner()
+    alignments.mode = mode
+    alignments=alignments.align(target, query)
     results: List() = []
-    with open("static/results.txt", "w",encoding='UTF-8') as _f:
+    with open("static/results.txt", "w",encoding='UTF-8') as file:
         for _a in alignments:
             results.append(_a)
-            _f.write(str(_a))
+            file.write(str(_a))
     return 0
 
 
@@ -43,7 +44,11 @@ def qr_code(hostname, port):
     * @param {string} hostname, the hostname of the server
     * @param {string} port, the port of the server
     '''
-    text: Any = "http://" + hostname + ":" + str(port) + "/api/results"
-    req: requests = requests.get('https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl=' + text + '&choe=UTF-8',timeout=60)
-    with open('static/qr.png', 'wb+') as _f:
-        _f.write(req.content)
+    text: str = "http://" + hostname + ":" + str(port) + "/api/results"
+    url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
+    encoding = "&choe=UTF-8"
+    req: object = requests.get( url + text + encoding, timeout=120)
+    with open('static/qr.png', 'wb+') as file:
+        file.write(req.content)
+    return 0
+    

@@ -10,20 +10,38 @@ function clear_button(){
 
 }
 
+function example_text(){
+    const element = document.getElementById("query");
+    element.value = "ACTGCT";
+    const element2 = document.getElementById("target");
+    element2.value = "ACTGCC";
+}
+
+
+
 function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
-        //upload to server
-        const data = {"Query":query.value,"Target":target.value};
-        fetch("/upload", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            redirect: "follow",
-            body: JSON.stringify(data)
-        }).then(response => response.json());
-
-
-        window.location.href = server+"/api/uploaded";
+        const _mode = document.getElementById("mode");
+        if(query.value === "" || target.value === "")
+        {
+            window.alert("Please enter a valid sequence!");
+            window.location.reload();
+        }
+        else
+        {
+            const success=window.alert("Sequence submission uploaded!"+"\n" +
+            "Click on 'Get Results' to view results under options.");
+            //upload to server
+            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
+            console.log(data);
+            fetch("/upload", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                redirect: "follow",
+                body: JSON.stringify(data)
+            }).then(response => response.json()).finally(success)   
+        }
 }
 
 function get_results(){
@@ -37,8 +55,17 @@ function delete_file(){
     const xhr = new XMLHttpRequest();
     xhr.open("GET", server+"/api/delete");
     xhr.send();
-    window.alert("File deleted successfully! redirecting to home page...");
-    window.location.href = server+"/";
+    if(window.location.href === server+"/")
+    {
+        window.alert("File deleted successfully!");
+        window.location.reload();
+    }
+        else
+    {
+        window.alert("File deleted successfully! redirecting to home page...");
+        window.location.href = server+"/";
+    }
+
 }
 
 function togglePopup() {
@@ -54,3 +81,21 @@ window.onclick = function(event) {
         togglePopup();
     }
 }
+
+function handle(elem){
+    switch (elem.value) {
+        case 'example_text':
+            example_text();
+            break;
+        case 'get_results':
+            get_results();
+            break;
+        case 'clear_button':
+            clear_button();
+            break;
+        case 'delete_file':
+            delete_file();
+            break;
+    }
+}
+

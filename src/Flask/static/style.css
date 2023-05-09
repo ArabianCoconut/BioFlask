@@ -5,6 +5,22 @@ h1,h2,h3{
     text-align: center;
 }
 
+#instructions{
+    font-size: large;
+}
+#select_mode{
+    text-align-last: center;
+    border-radius: 10px;
+    width: 150px;
+
+}
+
+#options{
+    font-weight: bold;
+    border-radius: 10px;
+    text-align-last: center;
+    width: 150px;
+}
 .popup-holder {
     display: none;
     position: fixed;
@@ -47,3 +63,66 @@ h1,h2,h3{
     text-align:center;
     width: 200px;
 }
+
+.outer_mode{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.mode{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    justify-content: start;
+    padding-bottom: 5px;
+    
+}
+#mode{
+    width: 150px;
+    height: auto;
+    text-align-last: center;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
+.textarea_box_container {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) { .textarea_box_container {
+    flex-direction: column;
+    }
+}
+
+#col1{
+    width: fit-content;
+    height: fit-content;
+    stroke: black;
+    stroke-width: 5px;
+}
+
+
+#col2{
+    width: fit-content;
+    height: fit-content;
+    stroke: black;
+    stroke-width: 5px;
+    padding-left: 5px;
+}
+
+@media (max-width: 600px) { #col2{
+    width: fit-content;
+    height: fit-content;
+    stroke: black;
+    stroke-width: 5px;
+    padding-top: 5px;
+    padding-left: 0px;
+    }
+}
+
