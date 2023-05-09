@@ -28,7 +28,7 @@ function submit_button(){
             const success=window.alert("Sequence submission uploaded!"+"\n" +
             "Click on 'Get Results' to view results under options.");
             //upload to server
-            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
+            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value,"Url":window.location.href};
             console.log(data);
             fetch("/upload", {
                 method: "POST",

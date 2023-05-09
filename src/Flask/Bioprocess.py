@@ -17,6 +17,7 @@ def load_json(json_stream):
     '''
     j_load: object = json.loads(json_stream)
     sequence_alignment(j_load['Target'], j_load['Query'], j_load['Mode'])
+    qr_code(j_load['Url'])
     return 0
 
 
@@ -38,13 +39,14 @@ def sequence_alignment(target: str, query: str, mode: str):
     return 0
 
 
-def qr_code(hostname, port):
+
+def qr_code(qr):
     '''
     * This function generates the QR code from google chart API
     * @param {string} hostname, the hostname of the server
     * @param {string} port, the port of the server
     '''
-    text: str = "http://" + hostname + ":" + str(port) + "/api/results"
+    text: str = qr + "api/results"
     url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
     encoding = "&choe=UTF-8"
     req: object = requests.get( url + text + encoding, timeout=120)
@@ -52,3 +54,4 @@ def qr_code(hostname, port):
         file.write(req.content)
     return 0
     
+
