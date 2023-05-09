@@ -18,6 +18,15 @@
 
 ---
 
+## Running using Docker
+
+1. docker pull arabiancoconut/bio_flask:Alpha
+2. docker run -p 5000:5000 arabiancoconut/bio_flask:Alpha
+3. Open the browser and go to <http://localhost:5000>
+4. Enjoy!
+
+---
+
 ## UML Diagram
 
 ![UML Diagram](Images/UML.jpg)
