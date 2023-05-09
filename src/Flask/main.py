@@ -78,4 +78,4 @@ def delete():
 
 # TO debug the application run the following command
 # python -m flask --app backend.py  run --debug
-start_app(host="0.0.0.0", port=5000, debug=False)
+start_app(host="0.0.0.0", port=5000, debug=True)

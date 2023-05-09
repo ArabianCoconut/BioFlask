@@ -47,7 +47,7 @@ def qr_code(hostname, port):
     text: str = "http://" + hostname + ":" + str(port) + "/api/results"
     url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
     encoding = "&choe=UTF-8"
-    req: object = requests.get( url + text + encoding, timeout=60)
+    req: object = requests.get( url + text + encoding, timeout=120)
     with open('static/qr.png', 'wb+') as file:
         file.write(req.content)
     return 0

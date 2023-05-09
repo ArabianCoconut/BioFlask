@@ -22,17 +22,26 @@ function example_text(){
 function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
-        const _mode = document.getElementById("select_mode");
-        const success=window.alert("Sequence submission uploaded!"+"\n" +
-        "Click on 'Get Results' to view results under options.");
-        //upload to server
-        const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
-        fetch("/upload", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            redirect: "follow",
-            body: JSON.stringify(data)
-        }).then(response => response.json()).finally(success)     
+        const _mode = document.getElementById("mode");
+        if(query.value === "" || target.value === "")
+        {
+            window.alert("Please enter a valid sequence!");
+            window.location.reload();
+        }
+        else
+        {
+            const success=window.alert("Sequence submission uploaded!"+"\n" +
+            "Click on 'Get Results' to view results under options.");
+            //upload to server
+            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
+            console.log(data);
+            fetch("/upload", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                redirect: "follow",
+                body: JSON.stringify(data)
+            }).then(response => response.json()).finally(success)   
+        }
 }
 
 function get_results(){
