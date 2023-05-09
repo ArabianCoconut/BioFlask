@@ -72,11 +72,22 @@ h1,h2,h3{
 }
 
 .mode{
+    width: fit-content;
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    justify-content: start;
     padding-bottom: 5px;
+
+    
+}
+#mode_text{
+    background-color: transparent;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    padding-right: 5px;
+
     
 }
 #mode{
@@ -85,7 +96,6 @@ h1,h2,h3{
     text-align-last: center;
     border-radius: 10px;
     font-weight: bold;
-
 }
 
 .textarea_box_container {
