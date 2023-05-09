@@ -99,17 +99,30 @@ h1,h2,h3{
     flex-direction: column;
     }
 }
+
 #col1{
     width: fit-content;
     height: fit-content;
     stroke: black;
     stroke-width: 5px;
 }
+
+
 #col2{
     width: fit-content;
     height: fit-content;
     stroke: black;
     stroke-width: 5px;
-    padding-left: 1px;
+    padding-left: 5px;
+}
+
+@media (max-width: 600px) { #col2{
+    width: fit-content;
+    height: fit-content;
+    stroke: black;
+    stroke-width: 5px;
+    padding-top: 5px;
+    padding-left: 0px;
+    }
 }
 
