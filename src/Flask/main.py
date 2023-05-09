@@ -4,16 +4,9 @@
 * @Description: This is the main application file for the flask application
 '''
 import os
-from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
 import Bioprocess as Bio
-
-load_dotenv()
-HOST: str = os.getenv("HOST","localhost")
-PORT: str | int = os.getenv("PORT", 6000)
-DEBUG: bool = os.getenv("DEBUG", False)
-
 
 app = Flask(__name__)
 CORS(app)
@@ -81,8 +74,8 @@ def delete():
     if os.path.exists("static/results.txt") or os.path.exists("static/qr.png"):
         os.remove("static/results.txt")
         os.remove("static/qr.png")
-    return None
+    return redirect(url_for('html', _method='GET'))
 
 # TO debug the application run the following command
 # python main.py
-start_app(host=HOST, port=PORT, debug=DEBUG)
+
