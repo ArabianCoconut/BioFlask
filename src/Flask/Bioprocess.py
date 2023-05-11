@@ -40,13 +40,13 @@ def sequence_alignment(target: str, query: str, mode: str):
 
 
 
-def qr_code(qr):
+def qr_code(QR):
     '''
     * This function generates the QR code from google chart API
     * @param {string} hostname, the hostname of the server
     * @param {string} port, the port of the server
     '''
-    text: str = qr + "api/results"
+    text: str = QR + "api/results"
     url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
     encoding = "&choe=UTF-8"
     req: object = requests.get( url + text + encoding, timeout=120)

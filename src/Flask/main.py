@@ -56,7 +56,7 @@ def results():
     '''
     if request.method == 'POST':
         data: str = request.data.decode('utf-8')
-        Bio.qr_processing(data)
+        Bio.qr_code(data)
     return render_template('results.html')
 
 
