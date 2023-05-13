@@ -36,7 +36,7 @@ def html():
     return render_template('index.html')
 
 
-@app.route("/upload", methods=['POST', 'GET'])  # type: ignore
+@app.route("/upload", methods=['POST', 'GET'])
 def upload():
     '''
     * This is the route for the upload page
