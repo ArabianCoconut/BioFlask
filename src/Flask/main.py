@@ -78,4 +78,3 @@ def delete():
 
 # TO debug the application run the following command
 # python main.py
-
