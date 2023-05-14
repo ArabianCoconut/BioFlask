@@ -8,6 +8,5 @@ Images/
 src/Flask/__pycache__
 src/Flask/.venv/
 src/Flask/Tests/
-requrements.txt
 LICENSE
 README.MD
