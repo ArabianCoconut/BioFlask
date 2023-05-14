@@ -19,8 +19,6 @@ a{
     font-weight: bold;
 }
 
-
-
 label{
     color: #ADFF2F;
     font-weight: bolder;
@@ -42,13 +40,12 @@ textarea{
     
 }
 
-
-
 #qr_btn,#delete_btn{
     font-weight: bold;
     background-color: #ADFF2F;
     border-radius: 10px;
     width: 150px;
+    /* height: 75px; */
 }
 #qr_code{
     font-weight: bold;
@@ -199,6 +196,7 @@ option{
 .iframe{
     display: flex;
     flex-direction: column;
+    background-color: white;
     align-items: center;
     border-radius: 10px;
     gap: 5px;
@@ -254,7 +252,7 @@ option{
     width: 150px;
 }}
 
-@media(max-width:600px){#qr_btn,#delete_btn,.result_btn{
+@media(max-width: 600px){#qr_btn, #delete_btn{
     width: 150px;
     height: 75px;
 }}
