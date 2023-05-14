@@ -4,7 +4,7 @@
         <title>BioFlask</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="body_div">
@@ -19,7 +19,7 @@
             <br>
             <span><b>Alternative:</b> Choose example for demo and click submit</span>
             <ol>
-                <li>Enter Target and Query sequences</li>
+                <li>Enter Target and Query sequences;Choose example for demo and click submit</li>
                 <li>To submit sequences click on submit</li>
                 <li>Then an alert pop will appear confirming submission</li>
                 <li>From the drop down menu click "Get Result" and then view your results</li>
@@ -31,7 +31,7 @@
             <div class="mode">
                 <label id="mode_text">Choose Mode:</label>
                 <select id="mode">
-                    <option value="default">Select options</option>
+                    <option>Select options</option>
                     <option value="global">Global</option>
                     <option value="local">Local</option>
                 </select>
@@ -46,27 +46,21 @@
                 </div>
             </div>
         </div>
-        <div class="choose_btn">
-                <label>Choose Options(Example, Get Result, Clear and Delete):</label>
-                    <select id="options" onchange="handle(this)">
-                        <option>Select options</option>
-                        <option value="example_text">Example</option>
-                        <option value="get_results">Get Result</option>
-                        <option value="clear_button">Clear</option>
-                        <option value="delete_file">Delete</option>
-                </select>
-                <button id="button" onclick="submit_button()">Submit</button>
-        </div>
-
-        <div class="bottom_footer">
-            <h5 id="note">NOTE: Your sequences are stored on the server. Use Drop down option to <b>Delete</b> the files.</h5>
-            <footer id="footer">Github project of ArabianCoconut @ <a href="https://github.com/ArabianCoconut/BioFlask">Link</a></footer>
-            <br>
-            <footer id="footer"> Made by <span style="color:#ADFF2F">Arabian Coconut</span> Copyright © 2023</footer>
-        </div>
-
-
-        <script src="{{url_for('static', filename='script.js')}}"></script>
+        <label>Choose Options ( Example, Get Result, Clear and Delete all ):</label>
+        <select id="options" onchange="handle(this)">
+            <option>Select options</option>
+            <option value="example_text">Example</option>
+            <option value="get_results">Get Result</option>
+            <option value="clear_button">Clear</option>
+            <option value="delete_file">Delete all</option>
+        </select>
+        <button id="submit_button" onclick="submit_button()">Submit</button>
+        
+        <script src="script.js"></script>
+        <h5 id="note">NOTE: Your sequences are stored on the server. Use Drop down option to delete the files.</h5>
+    <footer id="footer">Github project of ArabianCoconut @ <a href="https://github.com/ArabianCoconut/BioFlask">Link</a></footer>
+    <br>
+    <footer id="footer"> Made by <span style="color:#ADFF2F">Arabian Coconut</span> Copyright © 2023</footer>
     </div>
     </body>
 </html>

@@ -78,4 +78,4 @@ def delete():
         os.remove("static/qr.png")
     return redirect(url_for('html', _method='GET'))
 
-start_app("localhost", 5000, True)
+start_app("0.0.0.0", 5000, True)

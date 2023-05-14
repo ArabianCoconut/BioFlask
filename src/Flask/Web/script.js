@@ -23,11 +23,6 @@ function submit_button(){
             window.alert("Please enter a valid sequence!");
             window.location.reload();
         }
-        else if(_mode.value === "default")
-        {
-            window.alert("Please select a mode!");
-            window.location.reload();
-        }
         else
         {
             const success=window.alert("Sequence submission uploaded!"+"\n" +
@@ -96,21 +91,3 @@ function handle(elem){
     }
 }
 
-onload=function resize_textarea(){
-    if(window.innerWidth < 600)
-    {
-        document.getElementById("query").cols = 40;
-        document.getElementById("target").cols = 40;
-    }
-
-}
-
-onload=function resize_iframe(){
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    let frame = document.querySelector("#iframe");
-    frame.width=W/2;
-    frame.height=H/2;
-
-    
-}

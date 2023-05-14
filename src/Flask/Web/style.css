@@ -19,37 +19,26 @@ a{
     font-weight: bold;
 }
 
-
+.body_div{
+    text-align: left;
+}
 
 label{
     color: #ADFF2F;
     font-weight: bolder;
 }
 h1,h2,h3{
-    color: #ADFF2F;
     text-align: center;
 }
 textarea{
     font-weight: bolder;
     border-radius: 10px;
 }
-#button,#delete_btn{
-    font-weight: bold;
+button{
     background-color: #ADFF2F;
     border-radius: 10px;
-    width: 150px;
+    width: 120px;
     
-}
-
-#qr_btn{
-    font-weight: bold;
-    background-color: #ADFF2F;
-    border-radius: 10px;
-    width: 150px;
-}
-#qr_code{
-    font-weight: bold;
-    text-align: center;
 }
 
 #footer{
@@ -65,7 +54,6 @@ textarea{
 }
 option{
     background-color: white;
-    border-radius: 10px;
 }
 #options{
     background-color: #ADFF2F;
@@ -73,7 +61,6 @@ option{
     border-radius: 10px;
     text-align-last: center;
     width: 150px;
-    height: auto;
 }
 #note{
     color: red;
@@ -92,12 +79,12 @@ option{
 }
 
 .popup {
-    background-color: #252525;
+    background-color: #ffffff;
     margin: 15% auto;
     padding: 5px;
     border: 1px solid #888;
     width: 200px;
-    height: 300px;
+    height: auto;
     border-radius: 10px;
 }
 
@@ -117,6 +104,8 @@ option{
 }
 
 .popup-content {
+    /* background-color: blue; */
+    text-align:center;
     width: 200px;
 }
 
@@ -160,13 +149,11 @@ option{
     height: max-content;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    padding-bottom: 5px;
 }
 
-#submit_button{
-    width: 150px;
-    font-weight: bold;
+@media (max-width: 600px) { .textarea_box_container {
+    flex-direction: column;
+    }
 }
 
 #col1{
@@ -185,16 +172,6 @@ option{
     padding-left: 5px;
 }
 
-.iframe{
-    margin: auto;
-    text-align: center;
-    background-color: #252525;
-    text-decoration: #252525;
-    justify-content: left;
-    gap: 5px;
-}
-
-
 @media (max-width: 600px) { #col2{
     width: fit-content;
     height: fit-content;
@@ -204,36 +181,4 @@ option{
     padding-left: 0px;
     }
 }
-
-@media (max-width: 600px) { .textarea_box_container {
-    flex-direction: column;
-    }
-}
-
-
-
-@media (max-width:600px) {label{
-    font-size: small;
-    color: #ADFF2F;
-    font-weight: bolder;
-    
-    }
-}
-
-
-@media(max-width: 600px) {#note,#footer{
-    font-size: small;
-    text-align: left;
-}}
-
-@media(max-width:600px){.choose_btn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}}
-
-@media(max-width:600px){#button,#delete_btn{
-    width: 150px;
-}}
 
