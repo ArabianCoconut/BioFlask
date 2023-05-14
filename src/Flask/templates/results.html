@@ -6,10 +6,15 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
   </head>
 <body>
-  
-<h1 style="text-align: center">Results of your Sequence alignment</h1>
-<div class="iframe">
-  <iframe id="iframe" title="Results" src="{{url_for('static', filename='results.txt')}}"></iframe>
+<h1 style="text-align: center">Result of Sequence Alignment</h1>
+<div class="iframe_container">
+  <div class="iframe">
+    <iframe id="iframe" width="500px"title="Results" src="{{url_for('static', filename='results.txt')}}"></iframe>
+  </div>
+    <div class="result_btn">
+      <button id="delete_btn" onclick="delete_file()">Click to Delete File</button>
+      <button id="qr_btn"class="click_pop" onclick="togglePopup()">Generate QR code</button>
+  </div>
 </div>
 
 <div class="popup-holder" id="popupHolder">
@@ -21,8 +26,7 @@
   </div>
   </div>
 </div>
-<button id="delete_btn" onclick="delete_file()">Click to Delete File</button>
-<button id="qr_btn"class="click_pop" onclick="togglePopup()">Generate QR code</button>
+
 <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>

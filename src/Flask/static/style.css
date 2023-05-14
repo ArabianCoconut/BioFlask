@@ -33,7 +33,8 @@ textarea{
     font-weight: bolder;
     border-radius: 10px;
 }
-#button,#delete_btn{
+#button{
+    text-align: center;
     font-weight: bold;
     background-color: #ADFF2F;
     border-radius: 10px;
@@ -41,7 +42,9 @@ textarea{
     
 }
 
-#qr_btn{
+
+
+#qr_btn,#delete_btn{
     font-weight: bold;
     background-color: #ADFF2F;
     border-radius: 10px;
@@ -185,14 +188,28 @@ option{
     padding-left: 5px;
 }
 
-.iframe{
+.iframe_container{
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    align-items: flex-start;
     margin: auto;
-    text-align: center;
-    background-color: #252525;
-    text-decoration: #252525;
-    justify-content: left;
     gap: 5px;
 }
+.iframe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+.result_btn{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
 
 
 @media (max-width: 600px) { #col2{
@@ -233,7 +250,11 @@ option{
     gap: 5px;
 }}
 
-@media(max-width:600px){#button,#delete_btn{
+@media(max-width:600px){#button{
     width: 150px;
 }}
 
+@media(max-width:600px){#qr_btn,#delete_btn,.result_btn{
+    width: 150px;
+    height: 75px;
+}}

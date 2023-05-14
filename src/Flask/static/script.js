@@ -105,12 +105,8 @@ onload=function resize_textarea(){
 
 }
 
-onload=function resize_iframe(){
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    let frame = document.querySelector("#iframe");
-    frame.width=W/2;
-    frame.height=H/2;
-
-    
+window.onload = function() {
+    let frame = document.getElementById("iframe");
+    frame.style.height = (window.innerHeight)/2 + 'px';
+    frame.style.width = (window.innerWidth)/2+ 'px';
 }
