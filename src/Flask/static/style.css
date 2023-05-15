@@ -40,17 +40,7 @@ textarea{
     
 }
 
-#qr_btn,#delete_btn{
-    font-weight: bold;
-    background-color: #ADFF2F;
-    border-radius: 10px;
-    width: 150px;
-    /* height: 75px; */
-}
-#qr_code{
-    font-weight: bold;
-    text-align: center;
-}
+
 
 #footer{
     text-align: center;
@@ -184,6 +174,9 @@ option{
     stroke-width: 5px;
     padding-left: 5px;
 }
+/*===================================
+            Result page CSS 
+=====================================*/
 
 .iframe_container{
     display: flex;
@@ -198,19 +191,40 @@ option{
     flex-direction: column;
     background-color: white;
     align-items: center;
+    width: 100%;
     border-radius: 10px;
     gap: 5px;
 }
-
 .result_btn{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    gap: 10px
+}
+#qr_btn,#delete_btn{
+    display: flex;
+    align-items: center;
+    background-color: #ADFF2F;
+    border-radius: 10px;
+    font-weight: bold;
+    width: fit-content;
+    height: 45px;
+}
+
+#qr_code{
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =================================================================
+                        Media Queries
+================================================================= */
+@media (max-width: 1000px) {#qr_btn,#delete_btn{
+    height: 75px;
 }
 
 
-
-@media (max-width: 600px) { #col2{
+}
+@media (max-width: 1000px) { #col2{
     width: fit-content;
     height: fit-content;
     stroke: black;
@@ -220,14 +234,14 @@ option{
     }
 }
 
-@media (max-width: 600px) { .textarea_box_container {
+@media (max-width: 1000px) { .textarea_box_container {
     flex-direction: column;
     }
 }
 
 
 
-@media (max-width:600px) {label{
+@media (max-width:1000px) {label{
     font-size: small;
     color: #ADFF2F;
     font-weight: bolder;
@@ -236,23 +250,19 @@ option{
 }
 
 
-@media(max-width: 600px) {#note,#footer{
+@media(max-width: 1000px) {#note,#footer{
     font-size: small;
     text-align: left;
 }}
 
-@media(max-width:600px){.choose_btn{
+@media(max-width:1000px){.choose_btn{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }}
 
-@media(max-width:600px){#button{
+@media(max-width:1000px){#button{
     width: 150px;
 }}
 
-@media(max-width: 600px){#qr_btn, #delete_btn{
-    width: 150px;
-    height: 75px;
-}}
