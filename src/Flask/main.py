@@ -22,7 +22,6 @@ def start_app(host, port, debug=bool()) -> Flask:
     * @param {bool} debug
     * @return {Flask} app
     '''
-    Bio.qr_code(host, port)
     if bool(debug) is True:
         app.run(host=host, port=port, debug=debug)
     else:
@@ -37,7 +36,7 @@ def html():
     return render_template('index.html')
 
 
-@app.route("/upload", methods=['POST', 'GET'])  # type: ignore
+@app.route("/upload", methods=['POST', 'GET'])
 def upload():
     '''
     * This is the route for the upload page
@@ -50,11 +49,14 @@ def upload():
         Bio.load_json(data)
         return redirect(url_for('html', _method='GET'))
 
-@app.route("/results", methods=['GET'])
+@app.route("/results", methods=['GET', 'POST'])
 def results():
     '''
     * This is the route for the results page
     '''
+    if request.method == 'POST':
+        data: str = request.data.decode('utf-8')
+        Bio.qr_code(data)
     return render_template('results.html')
 
 
