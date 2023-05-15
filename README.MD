@@ -41,4 +41,4 @@
 
 ## Screenshots
 
-![Project_Screenshot](Images/Project_ss.png)
+![Project_Screenshot](Images/Project.png)

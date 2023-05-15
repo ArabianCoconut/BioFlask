@@ -23,12 +23,17 @@ function submit_button(){
             window.alert("Please enter a valid sequence!");
             window.location.reload();
         }
+        else if(_mode.value === "default")
+        {
+            window.alert("Please select a mode!");
+            window.location.reload();
+        }
         else
         {
             const success=window.alert("Sequence submission uploaded!"+"\n" +
             "Click on 'Get Results' to view results under options.");
             //upload to server
-            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value};
+            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value,"Url":window.location.href};
             console.log(data);
             fetch("/upload", {
                 method: "POST",
@@ -91,3 +96,26 @@ function handle(elem){
     }
 }
 
+
+window.onload = function() {
+    let frame = document.getElementById("iframe");
+    frame.style.height = (window.innerHeight)/2 + 'px';
+    frame.style.width = (window.innerWidth)/2+ 'px';
+
+    if (navigator.userAgent.indexOf("Firefox") != -1) {
+        document.getElementById("qr_btn").style.fontWeight = "normal";
+        document.getElementById("delete_btn").style.fontWeight = "normal";
+    }
+}
+
+function updateCols() {
+    if (window.innerWidth < 600) {
+    let text_areas = document.querySelectorAll("textarea");
+    for (const element of text_areas) {
+        element.setAttribute("cols", "45");
+    }
+    }
+}
+
+window.addEventListener("resize", updateCols);
+updateCols();

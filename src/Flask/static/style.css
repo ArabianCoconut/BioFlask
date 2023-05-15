@@ -1,26 +1,74 @@
+body{
+    background-color: #252525;
+    color:white;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+a{
+    color: #ADFF2F;
+    text-decoration: none;
+}
+.head{
+    color: #ADFF2F;
+    font-weight: bold;
+}
+
+#span_instructions{
+    color: #ADFF2F;
+    font-weight: bold;
+}
+
 label{
+    color: #ADFF2F;
     font-weight: bolder;
 }
 h1,h2,h3{
+    color: #ADFF2F;
+    text-align: center;
+}
+textarea{
+    font-weight: bolder;
+    border-radius: 10px;
+}
+#button{
+    text-align: center;
+    font-weight: bold;
+    background-color: #ADFF2F;
+    border-radius: 10px;
+    width: 150px;
+    
+}
+
+
+
+#footer{
     text-align: center;
 }
 
-#instructions{
-    font-size: large;
-}
+
 #select_mode{
     text-align-last: center;
     border-radius: 10px;
     width: 150px;
 
 }
-
+option{
+    background-color: white;
+    border-radius: 10px;
+}
 #options{
+    background-color: #ADFF2F;
     font-weight: bold;
     border-radius: 10px;
     text-align-last: center;
     width: 150px;
+    height: auto;
 }
+#note{
+    color: red;
+}
+
 .popup-holder {
     display: none;
     position: fixed;
@@ -34,12 +82,12 @@ h1,h2,h3{
 }
 
 .popup {
-    background-color: #ffffff;
+    background-color: #252525;
     margin: 15% auto;
     padding: 5px;
     border: 1px solid #888;
     width: 200px;
-    height: auto;
+    height: 300px;
     border-radius: 10px;
 }
 
@@ -59,8 +107,6 @@ h1,h2,h3{
 }
 
 .popup-content {
-    /* background-color: blue; */
-    text-align:center;
     width: 200px;
 }
 
@@ -91,6 +137,7 @@ h1,h2,h3{
     
 }
 #mode{
+    background-color: #ADFF2F;
     width: 150px;
     height: auto;
     text-align-last: center;
@@ -103,11 +150,13 @@ h1,h2,h3{
     height: max-content;
     display: flex;
     flex-direction: row;
+    gap: 10px;
+    padding-bottom: 5px;
 }
 
-@media (max-width: 600px) { .textarea_box_container {
-    flex-direction: column;
-    }
+#submit_button{
+    width: 150px;
+    font-weight: bold;
 }
 
 #col1{
@@ -125,8 +174,57 @@ h1,h2,h3{
     stroke-width: 5px;
     padding-left: 5px;
 }
+/*===================================
+            Result page CSS 
+=====================================*/
 
-@media (max-width: 600px) { #col2{
+.iframe_container{
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+    gap: 5px;
+}
+.iframe{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    gap: 5px;
+}
+.result_btn{
+    display: flex;
+    flex-direction: row;
+    gap: 10px
+}
+#qr_btn,#delete_btn{
+    display: flex;
+    align-items: center;
+    background-color: #ADFF2F;
+    border-radius: 10px;
+    font-weight: bold;
+    width: fit-content;
+    height: 45px;
+}
+
+#qr_code{
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =================================================================
+                        Media Queries
+================================================================= */
+@media (max-width: 1000px) {#qr_btn,#delete_btn{
+    height: 75px;
+}
+
+
+}
+@media (max-width: 1000px) { #col2{
     width: fit-content;
     height: fit-content;
     stroke: black;
@@ -135,4 +233,36 @@ h1,h2,h3{
     padding-left: 0px;
     }
 }
+
+@media (max-width: 1000px) { .textarea_box_container {
+    flex-direction: column;
+    }
+}
+
+
+
+@media (max-width:1000px) {label{
+    font-size: small;
+    color: #ADFF2F;
+    font-weight: bolder;
+    
+    }
+}
+
+
+@media(max-width: 1000px) {#note,#footer{
+    font-size: small;
+    text-align: left;
+}}
+
+@media(max-width:1000px){.choose_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}}
+
+@media(max-width:1000px){#button{
+    width: 150px;
+}}
 

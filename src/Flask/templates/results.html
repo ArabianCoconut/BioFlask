@@ -6,21 +6,27 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
   </head>
 <body>
-  
-<h1 style="text-align: center">Results of your Sequence alignment</h1>
-  <iframe title="Results" src="{{url_for('static', filename='results.txt')}}" width="100%" height="620px"></iframe><br>
-<button style="text-align: center" onclick="delete_file()">Click to Delete File</button>
-  
+<h1 style="text-align: center">Result of Sequence Alignment</h1>
+<div class="iframe_container">
+  <div class="iframe">
+    <iframe id="iframe" width="500px"title="Results" src="{{url_for('static', filename='results.txt')}}"></iframe>
+  </div>
+    <div class="result_btn">
+      <button id="delete_btn" onclick="delete_file()">Click to Delete File</button>
+      <button id="qr_btn"  class="click_pop" onclick="togglePopup()">Generate QR code</button>
+  </div>
+</div>
+
 <div class="popup-holder" id="popupHolder">
   <div class="popup">
   <button class="close" onclick="togglePopup()">X</button>
   <div class="popup-content">
-      <h3>QR Code</h3>
+      <h3 id="qr_code">QR Code</h3>
       <img src="{{url_for('static', filename='qr.png')}}" alt="QR code">
   </div>
   </div>
 </div>
-<button class="click_pop" onclick="togglePopup()">Generate QR code</button>
+
 <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>
