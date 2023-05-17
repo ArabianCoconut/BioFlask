@@ -78,5 +78,8 @@ def delete():
         os.remove("static/qr.png")
     return redirect(url_for('html', _method='GET'))
 
-# TO debug the application run the following command
-# python main.py
+''' 
+To debug the application run the following command
+python main.py or Uncomment the following line
+'''
+# start_app("0.0.0.0",5000,True)

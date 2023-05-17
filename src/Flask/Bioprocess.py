@@ -53,5 +53,3 @@ def qr_code(QR):
     with open('static/qr.png', 'wb+') as file:
         file.write(req.content)
     return 0
-    
-
