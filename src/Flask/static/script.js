@@ -67,7 +67,7 @@ function delete_file(){
 
 function togglePopup() {
     if (popupHolder.style.display === "none") {
-    popupHolder.style.display = "block";
+    popupHolder.style.display =  'block';
     } else {
     popupHolder.style.display = "none";
     }
