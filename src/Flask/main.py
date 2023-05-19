@@ -82,4 +82,4 @@ def delete():
 To debug the application run the following command
 python main.py or Uncomment the following line
 """
-# start_app("0.0.0.0",5000,True)
+start_app("0.0.0.0", 5000, True)
