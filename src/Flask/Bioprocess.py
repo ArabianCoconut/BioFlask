@@ -3,7 +3,6 @@
 * @Author: ArabianCoconut
 * @Version: Alpha build
 """
-from ast import List
 import json
 import requests
 from Bio.Align import PairwiseAligner
@@ -31,7 +30,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     alignments: object = PairwiseAligner()
     alignments.mode = mode
     alignments = alignments.align(target, query)
-    results: List() = []
+    results: list = []
     with open("static/results.txt", "w", encoding='UTF-8') as file:
         for _a in alignments:
             results.append(_a)
