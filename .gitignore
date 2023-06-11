@@ -138,3 +138,5 @@ Flask.code-workspace
 src/Flask/static/qr.png
 src/Flask/static/results.txt
 src/Flask/Prototyping/
+/src/Flask/modules/blast.txt
+/src/Flask/modules/blast.xml
