@@ -21,10 +21,6 @@ function submit_button(){
         const query = document.getElementById("query");
         const target = document.getElementById("target");
         const _mode = document.getElementById("mode");
-        // console.log(match_query.length);
-        // console.log(target.value.match(regex));
-        // console.log(query.value);
-        // console.log(target.value);
         try {
             let match_query = query.value.match(regex).toString();
             let match_target = target.value.match(regex).toString();
