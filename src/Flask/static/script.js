@@ -50,7 +50,9 @@ function submit_button() {
             window.alert("Please enter valid DNA sequences!");
             window.location.reload();
         }
-    } catch (e) {
+    }
+    catch (e)
+    {
         window.alert("Please enter valid DNA sequences!");
         window.location.reload();
     }
@@ -74,7 +76,6 @@ function delete_file(){
         window.alert("File deleted successfully! redirecting to home page...");
         window.location.href = "/";
     }
-
 }
 
 function togglePopup() {
@@ -107,7 +108,6 @@ function handle(elem){
             break;
     }
 }
-
 
 window.onload = function() {
     let frame = document.getElementById("iframe");
