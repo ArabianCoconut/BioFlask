@@ -31,7 +31,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     alignments.mode = mode
     alignments = alignments.align(target, query)
     results: list = []
-    with open("static/results.txt", "w", encoding='UTF-8') as file:
+    with open("../static/results.txt", "w", encoding='UTF-8') as file:
         for _a in alignments:
             results.append(_a)
             file.write(str(_a))
@@ -49,6 +49,6 @@ def qr_code(qr):
     url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
     encoding = "&choe=" + "UTF-8"
     req = requests.get(url + text + encoding, timeout=120)
-    with open('static/qr.png', 'wb+') as file:
+    with open('../static/qr.png', 'wb+') as file:
         file.write(req.content)
     return 0
