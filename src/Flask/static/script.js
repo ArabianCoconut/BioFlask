@@ -40,13 +40,10 @@ function submit_button(){
                 window.alert("Sequence submission uploaded!\n" +
                     "Click on 'Get Results' to view results under options.");
             } else if (match_query && match_target && match_query.length && match_target.length <= 10) {
-                window.alert("Valid DNA sequences are required!");
+                window.alert("Please enter sequences with lenght of 10 or more.");
                 window.location.reload();
             } else if (_mode.value === "default") {
                 window.alert("Please select a mode!");
-                window.location.reload();
-            } else {
-                window.alert("Please enter valid DNA sequences!");
                 window.location.reload();
             }
         }
