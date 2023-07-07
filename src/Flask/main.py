@@ -6,7 +6,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, Response
 from flask_cors import CORS
-from src.Flask.modules import Bioprocess as Bio
+from modules import Bioprocess as Bio
 
 app = Flask(__name__)
 CORS(app)
