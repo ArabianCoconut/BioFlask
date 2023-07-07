@@ -4,9 +4,9 @@
 * @Description: This is the main application file for the flask application
 """
 import os
-from flask import Flask, render_template, request, redirect, url_for, Response, jsonify
+from flask import Flask, render_template, request, redirect, url_for
 from flask_cors import CORS
-from src.Flask.modules import Bioprocess as Bio
+import Bioprocess as Bio
 
 app = Flask(__name__)
 CORS(app)
@@ -64,10 +64,7 @@ def results_api():
     """
     * This is the route for the results text file.
     """
-    if request.method == 'GET' and os.path.exists("static/results.txt"):
-        return redirect(url_for('static', filename='results.txt'))
-    else:
-        return Response(status=404)
+    return redirect(url_for('static', filename='results.txt'))
 
 
 @app.route("/api/delete", methods=['POST'])
