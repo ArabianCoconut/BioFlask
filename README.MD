@@ -1,6 +1,7 @@
 # BioFlask web interface for custom pairwise alignment
 
 ## Made in Python 3.11.X, Flask and BioPython
+## Designed in Figma
 
 ### Author: ArabianCoconut
 

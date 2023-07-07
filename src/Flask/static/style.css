@@ -55,20 +55,16 @@ textarea{
 }
 option{
     background-color: white;
-    color: black;
     border-radius: 10px;
 }
 #options{
-    background-color: white;
-    color: black;
+    background-color: #ADFF2F;
     font-weight: bold;
     border-radius: 10px;
     text-align-last: center;
     width: 150px;
     height: auto;
 }
-
-
 #note{
     color: red;
 }
@@ -141,7 +137,7 @@ option{
     
 }
 #mode{
-    background-color: white;
+    background-color: #ADFF2F;
     width: 150px;
     height: auto;
     text-align-last: center;
