@@ -20,6 +20,7 @@ function submit_button() {
     const _mode = document.getElementById("mode");
 
     try {
+        let regex = /^[AaTtCcGg]+$/g;
         let match_query = query.value.match(regex).toString();
         let match_target = target.value.match(regex).toString();
         if (match_query && match_target && match_query.length && match_target.length >= 10) {
