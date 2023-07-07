@@ -8,44 +8,73 @@ function clear_button(){
 
 function example_text(){
     const element = document.getElementById("query");
-    element.value = "ACTGCT";
+    element.value = "ACTGCTACTGCT";
     const element2 = document.getElementById("target");
-    element2.value = "ACTGCC";
+    element2.value = "ACTGCCACTGCT";
+    const mode = document.getElementById("mode");
+    mode.value = "local";
 }
 
 
 function submit_button(){
+        const regex = /^[ATCGatcg]+$/g;
         const query = document.getElementById("query");
         const target = document.getElementById("target");
         const _mode = document.getElementById("mode");
-        if(query.value === "" || target.value === "")
-        {
-            window.alert("Please enter a valid sequence!");
-            window.location.reload();
+        // console.log(match_query.length);
+        // console.log(target.value.match(regex));
+        // console.log(query.value);
+        // console.log(target.value);
+        try {
+            let match_query = query.value.match(regex).toString();
+            let match_target = target.value.match(regex).toString();
+            if (match_query && match_target && match_query.length && match_target.length >= 10) {
+                //upload to server
+                const data = {
+                    "Query": query.value,
+                    "Target": target.value,
+                    "Mode": _mode.value,
+                    "Url": window.location.href
+                };
+                console.log(data);
+                fetch("/upload", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    redirect: "follow",
+                    body: JSON.stringify(data)
+                }).then(response => response.json());
+                window.alert("Sequence submission uploaded!\n" +
+                    "Click on 'Get Results' to view results under options.");
+            } else if (match_query && match_target && match_query.length && match_target.length <= 10) {
+                window.alert("Valid DNA sequences are required!");
+                window.location.reload();
+            } else if (_mode.value === "default") {
+                window.alert("Please select a mode!");
+                window.location.reload();
+            } else {
+                window.alert("Please enter valid DNA sequences!");
+                window.location.reload();
+            }
         }
-        else if(_mode.value === "default")
-        {
-            window.alert("Please select a mode!");
-            window.location.reload();
-        }
-        else
-        {
-            const success=window.alert("Sequence submission uploaded!"+"\n" +
-            "Click on 'Get Results' to view results under options.");
-            //upload to server
-            const data = {"Query":query.value,"Target":target.value,"Mode":_mode.value,"Url":window.location.href};
-            console.log(data);
-            fetch("/upload", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                redirect: "follow",
-                body: JSON.stringify(data)
-            }).then(response => response.json()).finally(success)   
+        catch (e) {
+            window.alert("Something went wrong!\n Please check your input and try again.")
+            console.log(e);
         }
 }
 
-function get_results(){
-    open("/results");
+async function get_results(){
+  const api = "/api/results";
+    const data = await fetch(api)
+    if (data.status === 200)
+    {
+        window.alert("Results are ready! Redirecting to results page...");
+        window.location.href = "/results";
+    }
+    else if(data.status === 404)
+    {
+        window.alert("No results found! Donkey is still working on it...\nPlease try again later.");
+        window.location.reload();
+    }
 }
 
 function delete_file(){
@@ -57,7 +86,7 @@ function delete_file(){
         window.alert("File deleted successfully!");
         window.location.reload();
     }
-        else
+    else
     {
         window.alert("File deleted successfully! redirecting to home page...");
         window.location.href = "/";
