@@ -9,10 +9,19 @@ a{
     color: #ADFF2F;
     text-decoration: none;
 }
-.head{
+.head {
     color: #ADFF2F;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 5px;
+    text-decoration: none;
 }
+
+
 
 #span_instructions{
     color: #ADFF2F;
@@ -23,10 +32,7 @@ label{
     color: #ADFF2F;
     font-weight: bolder;
 }
-h1,h2,h3{
-    color: #ADFF2F;
-    text-align: center;
-}
+
 textarea{
     font-weight: bolder;
     border-radius: 10px;
@@ -143,7 +149,7 @@ option{
 #mode{
     background-color: white;
     width: 150px;
-    height: auto;
+    height: fit-content;
     text-align-last: center;
     border-radius: 10px;
     font-weight: bold;
@@ -234,7 +240,7 @@ option{
     stroke: black;
     stroke-width: 5px;
     padding-top: 5px;
-    padding-left: 0px;
+    padding-left: 0;
     }
 }
 
