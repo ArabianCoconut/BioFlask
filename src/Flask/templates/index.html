@@ -4,14 +4,14 @@
         <title>BioFlask</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="../static/style.css">
     </head>
     <body>
         <div class="body_div">
         <div class="head">
             <h1>Bio Flask</h1>
-            <h2>Powered by Flask</h2>
-            <h3>Written by ArabianCoconut</h3>
+            <h4>Powered by Flask</h4>
         </div>
         
         <div class="instructions">
@@ -22,7 +22,7 @@
                 <li>Enter Target and Query sequences</li>
                 <li>To submit sequences click on submit</li>
                 <li>Then an alert pop will appear confirming submission</li>
-                <li>From the drop down menu click "Get Result" and then view your results</li>
+                <li>From the drop-down menu click "Get Result" and then view your results</li>
                 <li>Click Generate QR code to view on mobile</li>
             </ol>
         </div>
@@ -64,9 +64,10 @@
             <br>
             <footer id="footer"> Made by <span style="color:#ADFF2F">Arabian Coconut</span> Copyright © 2023</footer>
         </div>
+        </div>
+    <script src="../static/script.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 
 
-        <script src="{{url_for('static', filename='script.js')}}"></script>
-    </div>
     </body>
 </html>
