@@ -32,7 +32,6 @@ function submit_button(){
                     "Mode": _mode.value,
                     "Url": window.location.href
                 };
-                console.log(data);
                 fetch("/upload", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
