@@ -1,16 +1,69 @@
+:root{
+    /* --accent-color: #ADFF2F; */
+    --accent-color: #8bc632;
+    --accent-color-dark: #648d25;
+    --font-color: #ccc;
+    --font-color2: #fff;
+    --warning-color: #ab0909;
+    --background-color: #252525;
+    --background-color2: rgb(71, 71, 71);
+    --font-size: 16px;
+    --font-family: Roboto, sans-serif;
+    --border-radius: 3px;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: #252525;
-    color:white;
-    font-family: Arial;
-    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
 }
 
 a{
-    color: #ADFF2F;
+    color: var(--accent-color);
     text-decoration: none;
 }
+
+button {
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--accent-color);
+    padding: 7px;
+    color: var(--font-color2);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+button:hover {
+    background-color: var(--accent-color-dark) !important;
+}
+
+input, select {
+    border-radius: var(--border-radius);
+    /* border: none; */
+    background-color: var(--background-color2);
+    padding: 5px;
+    color: var(--font-color2);
+    border: 1px solid var(--background-color2);
+}
+input:active
+input:focus,
+select:Active,
+select:focus {
+    border: 1px solid var(--accent-color);
+    outline: none;
+    background-color: rgb(86, 86, 86);
+    /* box-shadow: 0 0 0 0 #ADFF2F; */
+}
+
+
 .head {
-    color: #ADFF2F;
+    color: var(--accent-color);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -19,56 +72,90 @@ a{
     padding-bottom: 10px;
     gap: 5px;
     text-decoration: none;
+    background-color: #000;
+    margin-bottom: 20px;
+    border-bottom: 8px solid var(--accent-color);
 }
 
 
+.instructions span {
+    margin: 7px 5px;
+    display: block;
+    font-size: .8rem;
+}
 
 #span_instructions{
-    color: #ADFF2F;
+    color: var(--accent-color);
     font-weight: bold;
+    font-size: 1.4rem;
 }
 
 label{
-    color: #ADFF2F;
+    color: var(--accent-color);
     font-weight: bolder;
+}
+textarea {
+    resize: none !important;
 }
 
 textarea{
-    font-weight: bolder;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--background-color2);
+    padding: 10px;
+    color: var(--font-color);
 }
+textarea::placeholder {
+    color: #aaa;
+}
+textarea:active,
+textarea:focus {
+    border: 1px solid var(--accent-color);
+    outline: none;
+    background-color: rgb(86, 86, 86);
+    /* box-shadow: 0 0 0 0 #ADFF2F; */
+}
+
 #button{
     text-align: center;
     font-weight: bold;
-    background-color: #ADFF2F;
-    border-radius: 10px;
+    /* background-color: var(--accent-color); */
+    border-radius: var(--border-radius);
     width: 150px;
-    
 }
 
 
 
 #footer{
     text-align: center;
+    background-color: #000;
+    padding: 30px;
+    border-top: 3px solid var(--accent-color);
 }
 
 
 #select_mode{
     text-align-last: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     width: 150px;
+}
 
-}
 option{
-    background-color: white;
-    color: black;
-    border-radius: 10px;
+    background-color: var(--background-color2);
+    color: var(--font-color2);
+    border-radius: var(--border-radius);
 }
+option:hover,
+option:focus,
+option:checked {
+    color: var(--font-color2);
+}
+
 #options{
-    background-color: white;
-    color: black;
+    /* background-color: white; */
+    /* color: black; */
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     text-align-last: center;
     width: 150px;
     height: auto;
@@ -76,7 +163,7 @@ option{
 
 
 #note{
-    color: red;
+    color: var(--warning-color);
 }
 
 .popup-holder {
@@ -92,13 +179,13 @@ option{
 }
 
 .popup {
-    background-color: #252525;
+    background-color: var(--background-color);
     margin: 15% auto;
     padding: 5px;
     border: 1px solid #888;
     width: 200px;
     height: 300px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 .close {
@@ -107,7 +194,7 @@ option{
     font-size: 20px;
     font-weight: bold;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 .close:hover,.close:focus {
@@ -125,6 +212,7 @@ option{
     flex-direction: column;
     justify-content: center;
     margin-top: 5px;
+    text-align: center;
 }
 
 .mode{
@@ -133,6 +221,8 @@ option{
     flex-direction: row;
     font-weight: bold;
     padding-bottom: 5px;
+    /* margin: auto; */
+    margin: 5px auto 20px auto;
 
 
 }
@@ -147,11 +237,11 @@ option{
 
 }
 #mode{
-    background-color: white;
+    /* background-color: white; */
     width: 150px;
     height: fit-content;
     text-align-last: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     font-weight: bold;
 }
 
@@ -162,6 +252,9 @@ option{
     flex-direction: row;
     gap: 10px;
     padding-bottom: 5px;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 #submit_button{
@@ -184,6 +277,26 @@ option{
     stroke-width: 5px;
     padding-left: 5px;
 }
+
+ol li {
+    margin: 5px;
+}
+
+.choose_btn {
+    margin-top: 20px;
+    text-align: center;
+}
+.choose_btn label {
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.body_div {
+    padding: 10px;
+}
+
+
 /*===================================
             Result page CSS 
 =====================================*/
@@ -202,7 +315,7 @@ option{
     background-color: white;
     align-items: center;
     width: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     gap: 5px;
 }
 .result_btn{
@@ -213,8 +326,8 @@ option{
 #qr_btn,#delete_btn{
     display: flex;
     align-items: center;
-    background-color: #ADFF2F;
-    border-radius: 10px;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
     font-weight: bold;
     width: fit-content;
     height: 45px;
@@ -228,51 +341,83 @@ option{
 /* =================================================================
                         Media Queries
 ================================================================= */
-@media (max-width: 1000px) {#qr_btn,#delete_btn{
-    height: 75px;
-}
+@media (max-width: 1000px) {
 
-
-}
-@media (max-width: 1000px) { #col2{
-    width: fit-content;
-    height: fit-content;
-    stroke: black;
-    stroke-width: 5px;
-    padding-top: 5px;
-    padding-left: 0;
+        #qr_btn,#delete_btn {
+        height: 75px;
     }
-}
-
-@media (max-width: 1000px) { .textarea_box_container {
-    flex-direction: column;
-    }
-}
-
-
-
-@media (max-width:1000px) {label{
-    font-size: small;
-    color: #ADFF2F;
-    font-weight: bolder;
     
+    #col2 {
+        width: fit-content;
+        height: fit-content;
+        stroke: black;
+        stroke-width: 5px;
+        padding-top: 5px;
+        padding-left: 0;
+    }
+
+    .textarea_box_container {
+        flex-direction: column;
+        width: 100%;
+    }
+    .textarea_box_container>div {
+        width: 100% !important;
+    }
+    .textarea_box_container textarea {
+        width: 80%;
+        margin: auto;
+    }
+
+    label {
+        font-size: small;
+        color: #ADFF2F;
+        font-weight: bolder;
+    }
+    
+    #note,#footer {
+        font-size: small;
+        text-align: left;
+    }
+
+    .choose_btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #button {
+        width: 150px;
+    }
+
+    footer {
+        text-align: center !important;
+    }
+
+    .mode {
+        margin: auto;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    select, button, #mode {
+        width: 80% !important;
+        display: block !important;
+        padding: 14px 20px !important;
+        margin: auto !important;
+    }
+
+    .outer_mode label {
+        font-size: 1.4rem;
+    }
+    .choose_btn label {
+        font-size: 1.2rem;
+    }
+    .instructions {
+        margin-top: 40px;
+        display: block;
     }
 }
-
-
-@media(max-width: 1000px) {#note,#footer{
-    font-size: small;
-    text-align: left;
-}}
-
-@media(max-width:1000px){.choose_btn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}}
-
-@media(max-width:1000px){#button{
-    width: 150px;
-}}
 

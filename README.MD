@@ -3,7 +3,8 @@
 ## Made in Python 3.11.X, Flask and BioPython
 ## Designed in Figma
 
-### Author: ArabianCoconut
+### Author: [ArabianCoconut](https://github.com/ArabianCoconut)
+### Contrubutor: [Abd Kayali](https://github.com/AbdKayali3)
 
 ### Date: 2023-04-25
 
