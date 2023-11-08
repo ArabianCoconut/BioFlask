@@ -4,7 +4,7 @@
 ## Designed in Figma
 
 ### Author: [ArabianCoconut](https://github.com/ArabianCoconut)
-### Contrubutor: [Abd Kayali](https://github.com/AbdKayali3)
+### Contributor: [Abd Kayali](https://github.com/AbdKayali3)
 
 ### Date: 2023-04-25
 
