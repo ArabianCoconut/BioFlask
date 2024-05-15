@@ -30,8 +30,16 @@ function submit_button(){
                     "Query": query.value,
                     "Target": target.value,
                     "Mode": _mode.value,
-                    "Url": window.location.href
+                    "Url": window.location.href,
+                    "Cookies": document.cookie.split(';').reduce((acc, cookie) => {
+                        const [key, value] = cookie.trim().split('=');
+                        if (key === "Username") {
+                            return value;
+                        }
+                        return acc;
+                    }, "")
                 };
+                console.log(data)
                 fetch("/upload", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},

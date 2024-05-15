@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>BioFlask</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
-    <body>
-        <header class="head">
-            <h1>Bio Flask</h1>
-            <h4>Powered by Flask</h4>
-        </header>
-        <main class="body_div">
-        
-            <!-- <div class="instructions">
-                <span id="span_instructions">Instructions:</span>
-                <span><b>Alternative:</b> Choose example for demo and click submit</span>
-                <ol>
-                    <li>Enter Target and Query sequences</li>
-                    <li>To submit sequences click on submit</li>
-                    <li>Then an alert pop will appear confirming submission</li>
-                    <li>From the drop-down menu click "Get Result" and then view your results</li>
-                    <li>Click Generate QR code to view on mobile</li>
-                </ol>
-            </div> -->
-            <div class="outer_mode">
-                <label>Pairwise Alignment Mode:</label>
-                <div class="mode">
-                    <!-- <label id="mode_text">Choose Mode:</label> -->
-                    <select id="mode">
-                        <option value="default">Select options</option>
-                        <option value="global">Global</option>
-                        <option value="local">Local</option>
-                    </select>
-                </div>
-                <div class="textarea_box_container">
-                    <div id="col1">
-                        <!-- <label for="query"></label> -->
-                        <textarea id="query" rows="10" cols="50" placeholder="> Enter Query Sequence." draggable="false"></textarea>
-                    </div>
-                    <div id="col2">
-                        <!-- <label for="target"></label> -->
-                        <textarea id="target" rows="10" cols="50" placeholder="> Enter Target Sequence." draggable="false"></textarea>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="choose_btn">
-                    <label>Choose Options(Example, Get Result, Clear and Delete):</label>
-                        <select id="options" onchange="handle(this)">
-                            <option>Select options</option>
-                            <option value="example_text">Example</option>
-                            <option value="get_results">Get Result</option>
-                            <option value="clear_button">Clear</option>
-                            <option value="delete_file">Delete</option>
-                    </select>
-                    <button id="button" onclick="submit_button()">Submit</button>
-            </div>
-            <div class="instructions">
-                <span id="span_instructions">Instructions:</span>
-                <span><b>Alternative:</b> Choose example for demo and click submit</span>
-                <ol>
-                    <li>Enter Target and Query sequences</li>
-                    <li>To submit sequences click on submit</li>
-                    <li>Then an alert pop will appear confirming submission</li>
-                    <li>From the drop-down menu click "Get Result" and then view your results</li>
-                    <li>Click Generate QR code to view on mobile</li>
-                </ol>
-            </div>
-            <div class="bottom_footer">
-                <h5 id="note">NOTE: Your sequences are stored on the server. Use Drop down option to <b>Delete</b> the files.</h5>
-            </div>
-        </main>
-        <footer id="footer">
-            Github project of ArabianCoconut project <a href="https://github.com/ArabianCoconut/BioFlask">Link</a>
-            made by <span style="color:#ADFF2F">Arabian Coconut</span> Copyright © 2023
-        </footer>
+  <head>
+    <title>BioFlask</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <header class="head">
+      <h1>Bio Flask</h1>
+      <h4>Powered by Flask</h4>
+    </header>
+    <main class="body_div">
+      <div class="outer_mode">
+        <label>Pairwise Alignment Mode:</label>
+        <div class="mode">
+          <!-- <label id="mode_text">Choose Mode:</label> -->
+          <select id="mode">
+            <option value="default">Select options</option>
+            <option value="global">Global</option>
+            <option value="local">Local</option>
+          </select>
+        </div>
+        <div class="textarea_box_container">
+          <div id="col1">
+            <!-- <label for="query"></label> -->
+            <textarea
+              id="query"
+              rows="10"
+              cols="50"
+              placeholder="> Enter Query Sequence."
+              draggable="false"
+            ></textarea>
+          </div>
+          <div id="col2">
+            <!-- <label for="target"></label> -->
+            <textarea
+              id="target"
+              rows="10"
+              cols="50"
+              placeholder="> Enter Target Sequence."
+              draggable="false"
+            ></textarea>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="choose_btn">
+        <label>Choose Options(Example, Get Result, Clear and Delete):</label>
+        <select id="options" onchange="handle(this)">
+          <option>Select options</option>
+          <option value="example_text">Example</option>
+          <option value="get_results">Get Result</option>
+          <option value="clear_button">Clear</option>
+          <option value="delete_file">Delete</option>
+        </select>
+        <button id="button" onclick="submit_button()">Submit</button>
+      </div>
+      <div class="instructions">
+        <span id="span_instructions">Instructions:</span>
+        <span
+          ><b>Alternative:</b> Choose example for demo and click submit</span
+        >
+        <ol>
+          <li>Enter Target and Query sequences</li>
+          <li>To submit sequences click on submit</li>
+          <li>Then an alert pop will appear confirming submission</li>
+          <li>
+            From the drop-down menu click "Get Result" and then view your
+            results
+          </li>
+          <li>Click Generate QR code to view on mobile</li>
+        </ol>
+      </div>
+      <div class="bottom_footer">
+        <h5 id="note">
+          NOTE: Your sequences are stored on the server. Use Drop down option to
+          <b>Delete</b> the files.
+        </h5>
+      </div>
+    </main>
+    <footer id="footer">
+      Github project of ArabianCoconut project
+      <a href="https://github.com/ArabianCoconut/BioFlask">Link</a> made by
+      <span style="color: #adff2f">Arabian Coconut</span> Copyright © 2023
+    </footer>
     <script src="../static/script.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
-
-
-    </body>
+  </body>
 </html>

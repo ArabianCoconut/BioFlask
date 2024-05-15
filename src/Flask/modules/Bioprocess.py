@@ -15,12 +15,12 @@ def load_json(json_stream):
     * @return {string} load_dump
     """
     j_load: object = json.loads(json_stream)
-    sequence_alignment(j_load['Target'], j_load['Query'], j_load['Mode'])
+    sequence_alignment(j_load['Target'], j_load['Query'], j_load['Mode'], j_load['Username'])
     qr_code(j_load['Url'])
     return 0
 
 
-def sequence_alignment(target: str, query: str, mode: str):
+def sequence_alignment(target: str, query: str, mode: str, username: str):
     """
     * This function performs the sequence alignment
     * @param {string} target, the target sequence
@@ -31,7 +31,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     alignments.mode = mode
     alignments = alignments.align(target, query)
     results: list = []
-    with open("static/results.txt", "w", encoding='UTF-8') as file:
+    with open(f"static/results_{username}.txt", "w", encoding='UTF-8') as file:
         for _a in alignments:
             results.append(_a)
             file.write(str(_a))

@@ -4,12 +4,13 @@
 * @Description: This is the main application file for the flask application
 """
 import os
-from flask import Flask, render_template, request, redirect, url_for, Response
+from flask import Flask, make_response, render_template, request, redirect, url_for, Response
 from flask_cors import CORS
 from modules import Bioprocess as Bio
 
 app = Flask(__name__)
 CORS(app)
+
 
 
 def start_app(host, port, debug=bool()) -> Flask:
@@ -27,11 +28,19 @@ def start_app(host, port, debug=bool()) -> Flask:
         app.run(host=host, port=port, debug=False)
     return app
 
+@app.route("/", methods=['GET', 'POST'])
+def userpage():
+    if request.method == 'POST':
+        user = request.form['username']
+        resp = make_response(render_template("index.html",userid=user))
+        resp.set_cookie('Username', user, samesite='Strict')
+        return resp
+    return render_template('userpage.html')
 
-@app.route("/", methods=['GET'])
-def html():
-    """ Renders the html page """
-    return render_template('index.html')
+# @app.route("<username>/index", methods=['GET'])
+# def index(username):
+#     """ Renders the index.html page """
+#     render_template("index.html",username=username)
 
 
 @app.route("/upload", methods=['POST', 'GET'])
@@ -64,8 +73,9 @@ def results_api():
     """
     * This is the route for the results text file.
     """
-    if request.method == 'GET' and os.path.exists("static/results.txt"):
-        return redirect(url_for('static', filename='results.txt'))
+    username = request.cookies.get('Username')
+    if request.method == 'GET' and os.path.exists(f"static/results_{username}.txt"):
+        return redirect(url_for('static', filename=f'results_{username}.txt'))
     else:
         return Response(status=404)
 
@@ -75,9 +85,12 @@ def delete():
     """
     * This is the route for the delete page
     """
-    if os.path.exists("static/results.txt") or os.path.exists("static/qr.png"):
-        os.remove("static/results.txt")
-        os.remove("static/qr.png")
+    username = request.cookies.get('Username')
+    RESULT_PATH = f"static/results_{username}.txt"
+    QR_PATH=f"static/qr_{username}.png"
+    if os.path.exists(RESULT_PATH) or os.path.exists(QR_PATH):
+        os.remove(RESULT_PATH)
+        os.remove(QR_PATH)
     return redirect(url_for('html', _method='GET'))
 
 

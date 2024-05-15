@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BioFlask</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <!-- for testing only-->
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+
+  <body>
+    <header class="head">
+      <h1>Bio Flask</h1>
+      <h4>Powered by Flask</h4>
+    </header>
+    <main>
+      <div class="username_container" style="display: flex;">
+        <h2>User Name</h2>
+        <form method="post">
+          <input type="text" id="username" name="username" placeholder="Enter your name"/>
+          <button onclick="submit_button_username()">Submit</button>
+        </form>
+        <p>Note: The username just keeps tracks of your files on the server.</p>
+      </div>
+    </main>
+    <script src="../static/script.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+  </body>
+</html>
