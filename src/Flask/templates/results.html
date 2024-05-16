@@ -9,7 +9,7 @@
 <h1 style="text-align: center">Result of Sequence Alignment</h1>
 <div class="iframe_container">
   <div class="iframe">
-    <iframe id="iframe" width="500px"title="Results" src=""></iframe>
+    <iframe id="iframe" width="500px"title="Results" src="{{url_for('static', filename='results_' + username + '.txt')}}"></iframe>
   </div>
     <div class="result_btn">
       <button id="delete_btn" onclick="delete_file()">Click to Delete File</button>
@@ -22,15 +22,10 @@
   <button class="close" onclick="togglePopup()">X</button>
   <div class="popup-content">
       <h3 id="qr_code">QR Code</h3>
-      <img src="" alt="QR code">
+      <img src="{{url_for('static', filename='qr_' + username + '.png')}}" alt="QR code">
   </div>
   </div>
 </div>
-<script>
-  var document = document.getElementById('iframe').src = "{{url_for('static', filename='results_' + username + '.txt')}}";
-  var qr_code = document.getElementById('qr_code').src = "{{url_for('static', filename='qr_' + username + '.png')}}";
-</script>
-
 <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>

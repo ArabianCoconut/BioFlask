@@ -66,6 +66,7 @@ def results():
     USER_COOKIE = usercookie()
     if request.method == 'POST':
         data = request.data.decode('utf-8')
+        print(data)
         Bio.qr_code(data)
     return render_template('results.html',username=USER_COOKIE)
 

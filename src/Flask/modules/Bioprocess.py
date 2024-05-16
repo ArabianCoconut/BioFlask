@@ -47,9 +47,10 @@ def qr_code(qr):
     * @param {string} port, the port of the server
     """
     USER_COOKIE = usercookie()
-    text: str = qr + "api/results"
+    
     QR_PATH = f"static/qr_{USER_COOKIE}.png"
-    url = "https://chart.googleapis.com/chart?cht=qr&cht=qr&chs=200x200&chl="
+    text: str = qr + "api/results"
+    url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
     encoding = "&choe=" + "UTF-8"
     req = requests.get(url + text + encoding, timeout=120)
     with open(QR_PATH, 'wb+') as file:
