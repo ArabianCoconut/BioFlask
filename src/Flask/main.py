@@ -62,10 +62,11 @@ def results():
     """
     * This is the route for the results page
     """
+    USER_COOKIE = usercookie()
     if request.method == 'POST':
         data = request.data.decode('utf-8')
         Bio.qr_code(data)
-    return render_template('results.html')
+    return render_template('results.html',username=USER_COOKIE)
 
 
 @app.route("/api/results", methods=['GET'])
