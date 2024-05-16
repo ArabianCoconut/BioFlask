@@ -51,11 +51,9 @@ def upload():
     * @param {GET} request
     * @return {JSON} status
     """
-    USER_COOKIE = usercookie()
-
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        Bio.load_json(data, USER_COOKIE)
+        Bio.load_json(data)
         return redirect(url_for('html', _method='GET'))
 
 
@@ -64,11 +62,9 @@ def results():
     """
     * This is the route for the results page
     """
-    USER_COOKIE = usercookie()
-
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        Bio.qr_code(data, USER_COOKIE)
+        Bio.qr_code(data)
     return render_template('results.html')
 
 
