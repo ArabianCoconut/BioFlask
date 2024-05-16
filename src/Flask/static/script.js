@@ -30,14 +30,7 @@ function submit_button(){
                     "Query": query.value,
                     "Target": target.value,
                     "Mode": _mode.value,
-                    "Url": window.location.href,
-                    "Cookies": document.cookie.split(';').reduce((acc, cookie) => {
-                        const [key, value] = cookie.trim().split('=');
-                        if (key === "Username") {
-                            return value;
-                        }
-                        return acc;
-                    }, "")
+                    "Url": window.location.href
                 };
                 console.log(data)
                 fetch("/upload", {

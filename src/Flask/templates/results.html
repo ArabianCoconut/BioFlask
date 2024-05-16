@@ -26,12 +26,6 @@
   </div>
   </div>
 </div>
-<script>
-  var username = window.location.href.split('/')[3];
-  var document = document.getElementById('iframe').src = "{{url_for('static', filename='results_' + username + '.txt')}}";
-  var qr_code = document.getElementById('qr_code').src = "{{url_for('static', filename='qr_' + username + '.png')}}";
-</script>
-
 <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>

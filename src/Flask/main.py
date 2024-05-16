@@ -12,7 +12,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-
 def start_app(host, port, debug=bool()) -> Flask:
     """
     * This is the main function/config for the application
@@ -27,6 +26,7 @@ def start_app(host, port, debug=bool()) -> Flask:
         print("Debug mode is disabled")
         app.run(host=host, port=port, debug=False)
     return app
+
 
 @app.route("/", methods=['GET', 'POST'])
 def userpage():
@@ -51,9 +51,11 @@ def upload():
     * @param {GET} request
     * @return {JSON} status
     """
+    USER_COOKIE = request.cookies.get("Username")
+
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        Bio.load_json(data)
+        Bio.load_json(data, USER_COOKIE)
         return redirect(url_for('html', _method='GET'))
 
 
@@ -62,9 +64,11 @@ def results():
     """
     * This is the route for the results page
     """
+    USER_COOKIE = request.cookies.get("Username")
+
     if request.method == 'POST':
         data = request.data.decode('utf-8')
-        Bio.qr_code(data)
+        Bio.qr_code(data, USER_COOKIE)
     return render_template('results.html')
 
 
@@ -73,9 +77,10 @@ def results_api():
     """
     * This is the route for the results text file.
     """
-    username = request.cookies.get('Username')
-    if request.method == 'GET' and os.path.exists(f"static/results_{username}.txt"):
-        return redirect(url_for('static', filename=f'results_{username}.txt'))
+    USER_COOKIE = request.cookies.get("Username")
+
+    if request.method == 'GET' and os.path.exists(f"static/results_{USER_COOKIE}.txt"):
+        return redirect(url_for('static', filename=f'results_{USER_COOKIE}.txt'))
     else:
         return Response(status=404)
 
@@ -85,9 +90,9 @@ def delete():
     """
     * This is the route for the delete page
     """
-    username = request.cookies.get('Username')
-    RESULT_PATH = f"static/results_{username}.txt"
-    QR_PATH=f"static/qr_{username}.png"
+    USER_COOKIE = request.cookies.get("Username")
+    RESULT_PATH = f"static/results_{USER_COOKIE}.txt"
+    QR_PATH=f"static/qr_{USER_COOKIE}.png"
     if os.path.exists(RESULT_PATH) or os.path.exists(QR_PATH):
         os.remove(RESULT_PATH)
         os.remove(QR_PATH)
@@ -98,4 +103,5 @@ def delete():
 To debug the application run the following command
 python main.py or Uncomment the following line
 """
-start_app("0.0.0.0", 5000, True)
+if __name__ == '__main__':
+    start_app("localhost", 5000, True)
