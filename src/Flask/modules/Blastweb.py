@@ -24,7 +24,11 @@ blast_record = next(blast_record)
 with open("src/Flask/static/blast.txt", "w") as out_handle:
     for alignment in blast_record.alignments:
         for hsp in alignment.hsps:
-            out_handle.write("Timestamp: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n\n")
+            out_handle.write(
+                "Timestamp: "
+                + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                + "\n\n"
+            )
             out_handle.write("******Alignment******\n")
             out_handle.write("Sequence: %s\n" % alignment.title)
             out_handle.write("Length: %i\n" % alignment.length)

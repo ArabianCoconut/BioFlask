@@ -35,12 +35,6 @@
 
 ---
 
-## UML Diagram
-
-![UML Diagram](Images/UML.jpg)
-
----
-
 ## Screenshots
 
 ![Project_Screenshot](Images/Project.png)
