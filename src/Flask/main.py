@@ -93,7 +93,7 @@ def delete():
     if os.path.exists(RESULT_PATH) or os.path.exists(QR_PATH):
         os.remove(RESULT_PATH)
         os.remove(QR_PATH)
-    return redirect(url_for('html', _method='GET'))
+    return redirect(url_for('index.html', _method='GET'))
 
 def usercookie():
     USER_COOKIE = request.cookies.get("Username")
