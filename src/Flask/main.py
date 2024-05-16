@@ -51,10 +51,11 @@ def upload():
     * @param {GET} request
     * @return {JSON} status
     """
+    USER_COOKIE = usercookie()
     if request.method == 'POST':
         data = request.data.decode('utf-8')
         Bio.load_json(data)
-        return redirect(url_for('html', _method='GET'))
+        return render_template('index.html',username=USER_COOKIE)
 
 
 @app.route("/results", methods=['GET', 'POST'])
@@ -93,7 +94,7 @@ def delete():
     if os.path.exists(RESULT_PATH) or os.path.exists(QR_PATH):
         os.remove(RESULT_PATH)
         os.remove(QR_PATH)
-    return redirect(url_for('index.html', _method='GET'))
+    return render_template('index.html',username=USER_COOKIE)
 
 def usercookie():
     USER_COOKIE = request.cookies.get("Username")

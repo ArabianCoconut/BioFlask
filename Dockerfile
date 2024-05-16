@@ -1,5 +1,5 @@
 # Use an official Python runtime
-FROM python:3.11.3-slim
+FROM python:3.12.3-slim
 
 WORKDIR /app
 COPY . /app
