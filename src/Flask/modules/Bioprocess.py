@@ -7,7 +7,7 @@ import json
 import requests
 import requests.cookies
 from Bio.Align import PairwiseAligner
-from main import usercookie
+from flask import request
 
 
 def load_json(json_stream):
@@ -40,7 +40,6 @@ def sequence_alignment(target: str, query: str, mode: str):
             file.write(str(_a))
     return 0
 
-
 def qr_code(qr):
     """
     * This function generates the QR code from Google chart API
@@ -57,4 +56,6 @@ def qr_code(qr):
         file.write(req.content)
     return 0
 
-
+def usercookie():
+    USER_COOKIE = request.cookies.get('Username')
+    return USER_COOKIE
