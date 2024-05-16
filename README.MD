@@ -1,6 +1,6 @@
 # BioFlask web interface for custom pairwise alignment
 
-## Made in Python 3.11.X, Flask and BioPython
+## Made in Python 3.12.3, Flask and BioPython
 ## Designed in Figma
 
 ### Author: [ArabianCoconut](https://github.com/ArabianCoconut)
@@ -32,12 +32,6 @@
 2. docker run -p 5000:5000 arabiancoconut/bio_flask:Alpha
 3. Open the browser and go to <http://localhost:5000>
 4. Enjoy!
-
----
-
-## UML Diagram
-
-![UML Diagram](Images/UML.jpg)
 
 ---
 

@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Results Page</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
   </head>
-<body>
-<h1 style="text-align: center">Result of Sequence Alignment</h1>
-<div class="iframe_container">
-  <div class="iframe">
-    <iframe id="iframe" width="500px"title="Results" src="{{url_for('static', filename='results.txt')}}"></iframe>
-  </div>
-    <div class="result_btn">
-      <button id="delete_btn" onclick="delete_file()">Click to Delete File</button>
-      <button id="qr_btn"  class="click_pop" onclick="togglePopup()">Generate QR code</button>
-  </div>
-</div>
+  <body>
+    <h1 style="text-align: center">Result of Sequence Alignment</h1>
+    <div class="iframe_container">
+      <div class="iframe">
+        <iframe
+          id="iframe"
+          width="500px"
+          title="Results"
+          src="{{url_for('static', filename='results_' + username + '.txt')}}"
+        ></iframe>
+      </div>
+      <div class="result_btn">
+        <button id="delete_btn" onclick="delete_file()">
+          Click to Delete File
+        </button>
+        <button id="qr_btn" class="click_pop" onclick="togglePopup()">
+          Generate QR code
+        </button>
+      </div>
+    </div>
 
-<div class="popup-holder" id="popupHolder" style="display: none;">
-  <div class="popup">
-  <button class="close" onclick="togglePopup()">X</button>
-  <div class="popup-content">
-      <h3 id="qr_code">QR Code</h3>
-      <img src="{{url_for('static', filename='qr.png')}}" alt="QR code">
-  </div>
-  </div>
-</div>
-
-<script src="{{url_for('static', filename='script.js')}}"></script>
-</body>
+    <div class="popup-holder" id="popupHolder" style="display: none">
+      <div class="popup">
+        <button class="close" onclick="togglePopup()">X</button>
+        <div class="popup-content">
+          <h3 id="qr_code">QR Code</h3>
+          <img
+            src="{{url_for('static', filename='qr_' + username + '.png')}}"
+            alt="QR code"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+  </body>
 </html>
