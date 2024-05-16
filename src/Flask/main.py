@@ -51,7 +51,7 @@ def upload():
     * @param {GET} request
     * @return {JSON} status
     """
-    USER_COOKIE = request.cookies.get("Username")
+    USER_COOKIE = usercookie()
 
     if request.method == 'POST':
         data = request.data.decode('utf-8')
@@ -64,7 +64,7 @@ def results():
     """
     * This is the route for the results page
     """
-    USER_COOKIE = request.cookies.get("Username")
+    USER_COOKIE = usercookie()
 
     if request.method == 'POST':
         data = request.data.decode('utf-8')
@@ -77,7 +77,7 @@ def results_api():
     """
     * This is the route for the results text file.
     """
-    USER_COOKIE = request.cookies.get("Username")
+    USER_COOKIE = usercookie()
 
     if request.method == 'GET' and os.path.exists(f"static/results_{USER_COOKIE}.txt"):
         return redirect(url_for('static', filename=f'results_{USER_COOKIE}.txt'))
@@ -90,13 +90,17 @@ def delete():
     """
     * This is the route for the delete page
     """
-    USER_COOKIE = request.cookies.get("Username")
+    USER_COOKIE = usercookie()
     RESULT_PATH = f"static/results_{USER_COOKIE}.txt"
     QR_PATH=f"static/qr_{USER_COOKIE}.png"
     if os.path.exists(RESULT_PATH) or os.path.exists(QR_PATH):
         os.remove(RESULT_PATH)
         os.remove(QR_PATH)
     return redirect(url_for('html', _method='GET'))
+
+def usercookie():
+    USER_COOKIE = request.cookies.get("Username")
+    return USER_COOKIE
 
 
 """ 
