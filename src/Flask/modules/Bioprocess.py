@@ -41,7 +41,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     return 0
 
 
-def qr_code(qr, cookie):
+def qr_code(qr):
     """
     * This function generates the QR code from Google chart API
     * @param {string} hostname, the hostname of the server
