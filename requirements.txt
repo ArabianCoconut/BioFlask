@@ -1,4 +1,4 @@
 flask==3.0.3
 flask-cors==4.0.1
-Biopython==1.83
+Biopython==1.84
 requests==2.32.3
