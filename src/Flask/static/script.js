@@ -24,12 +24,12 @@ window.addEventListener('beforeinstallprompt', (event) => {
     });
   });
 });
-
-onload = () => {
+function hideInstallButtonIfStandalone() {
   if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
     document.getElementById('installButton').style.display = 'none';
   }
-  
+}
+onload = () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/service-worker.js')
       .then(registration => {
@@ -59,6 +59,7 @@ onload = () => {
       refreshing = true;
     });
   }
+  document.addEventListener('DOMContentLoaded', hideInstallButtonIfStandalone);
 }
 
 function clear_button() {

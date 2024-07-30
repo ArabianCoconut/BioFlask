@@ -124,5 +124,5 @@ def usercookie():
 To debug the application run the following command
 python main.py or Uncomment the following line
 """
-# if __name__ == "__main__":
-#     start_app(host="0.0.0.0", port=5000, debug=True)
+if __name__ == "__main__":
+    start_app(host="0.0.0.0", port=5000, debug=True)
