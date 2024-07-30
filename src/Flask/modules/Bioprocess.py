@@ -51,7 +51,7 @@ def qr_code(qr):
     """
     USER_COOKIE = usercookie()
 
-    QR_PATH = f"../static/qr_{USER_COOKIE}.png"
+    QR_PATH = f"static/qr_{USER_COOKIE}.png"
     text: str = qr + "api/results"
     url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
     encoding = "&choe=" + "UTF-8"

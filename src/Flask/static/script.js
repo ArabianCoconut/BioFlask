@@ -1,3 +1,6 @@
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  document.getElementById('installButton').style.display = 'none';
+}
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (event) => {
   // Prevent the mini-infobar from appearing on mobile
@@ -190,6 +193,7 @@ function updateCols() {
     }
   }
 }
+
 
 window.addEventListener("resize", updateCols);
 updateCols();
