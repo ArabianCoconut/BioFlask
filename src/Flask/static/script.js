@@ -26,7 +26,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 onload = () => {
-  if (window.matchMedia('(display-mode: standalone)').matches) {
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
     document.getElementById('installButton').style.display = 'none';
   }
   
