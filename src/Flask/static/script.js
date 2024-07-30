@@ -24,8 +24,14 @@ window.addEventListener('beforeinstallprompt', (event) => {
     });
   });
 });
-function hideInstallButtonIfStandalone() {
-  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+function hideInstallButtonIfPWA() {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  const isFullscreen = window.matchMedia('(display-mode: fullscreen)').matches;
+  const isMinimalUI = window.matchMedia('(display-mode: minimal-ui)').matches;
+  const isBrowser = window.matchMedia('(display-mode: browser)').matches;
+  const isIOSStandalone = window.navigator.standalone;
+
+  if (isStandalone || isFullscreen || isMinimalUI || isBrowser || isIOSStandalone) {
     document.getElementById('installButton').style.display = 'none';
   }
 }
