@@ -1,43 +1,4 @@
 onload = () => {
-  let deferredPrompt;
-  window.addEventListener('beforeinstallprompt', (event) => {
-    // Prevent the mini-infobar from appearing on mobile
-    event.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = event;
-    // Update UI to notify the user they can install the PWA
-    const installButton = document.getElementById('installButton');
-    installButton.style.display = 'block';
-
-    installButton.addEventListener('click', () => {
-      // Hide the install button
-      installButton.style.display = 'none';
-      // Show the install prompt
-      deferredPrompt.prompt();
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
-        } else {
-          console.log('User dismissed the install prompt');
-        }
-        deferredPrompt = null;
-      });
-    });
-  });
-}
-function hideInstallButtonIfPWA() {
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-  const isFullscreen = window.matchMedia('(display-mode: fullscreen)').matches;
-  const isMinimalUI = window.matchMedia('(display-mode: minimal-ui)').matches;
-  const isBrowser = window.matchMedia('(display-mode: browser)').matches;
-  const isIOSStandalone = window.navigator.standalone;
-
-  if (isStandalone || isFullscreen || isMinimalUI || isBrowser || isIOSStandalone) {
-    document.getElementById('installButton').style.display = 'none';
-  }
-}
-onload = () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/service-worker.js')
       .then(registration => {
@@ -67,7 +28,6 @@ onload = () => {
       refreshing = true;
     });
   }
-  document.addEventListener('DOMContentLoaded', hideInstallButtonIfPWA);
 }
 function clear_button() {
   const element = document.getElementById("query");
