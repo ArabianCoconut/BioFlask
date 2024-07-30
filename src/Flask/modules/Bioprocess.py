@@ -31,11 +31,12 @@ def sequence_alignment(target: str, query: str, mode: str):
     * @param {string} mode, the mode of alignment (global,local)
     """
     USER_COOKIE = usercookie()
+    FilePath = f"static/results_{USER_COOKIE}.txt"
     alignments: object = PairwiseAligner()
     alignments.mode = mode
     alignments = alignments.align(target, query)
-    results: list = []
-    with open(f"static/results_{USER_COOKIE}.txt", "w", encoding="UTF-8") as file:
+    results: list = []    
+    with open(FilePath, "w", encoding="UTF-8") as file:
         for _a in alignments:
             results.append(_a)
             file.write(str(_a))
@@ -50,7 +51,7 @@ def qr_code(qr):
     """
     USER_COOKIE = usercookie()
 
-    QR_PATH = f"static/qr_{USER_COOKIE}.png"
+    QR_PATH = f"../static/qr_{USER_COOKIE}.png"
     text: str = qr + "api/results"
     url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
     encoding = "&choe=" + "UTF-8"

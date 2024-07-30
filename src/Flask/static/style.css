@@ -1,15 +1,16 @@
 :root {
-  /* --accent-color: #ADFF2F; */
   --accent-color: #8bc632;
   --accent-color-dark: #648d25;
   --font-color: #ccc;
   --font-color2: #fff;
-  --warning-color: #ab0909;
+  --warning-color: #F66A6A;
   --background-color: #252525;
-  --background-color2: rgb(71, 71, 71);
+  --background-color2: #474747;
   --font-size: 16px;
   --font-family: Roboto, sans-serif;
   --border-radius: 3px;
+  --button-color: #8FCC33;
+  --button-color-text: #000;
 }
 html,
 body {
@@ -35,13 +36,26 @@ button {
   border: none;
   background-color: var(--accent-color);
   padding: 7px;
-  color: var(--font-color2);
+  color: var(--button-color-text);
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
+  background-color: var(--button-color);
 }
 button:hover {
   background-color: var(--accent-color-dark) !important;
+}
+#installButton {
+  display: none; /* Hide the button by default */
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: var(--button-color-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 input,
@@ -159,6 +173,7 @@ option:checked {
 
 #note {
   color: var(--warning-color);
+  background-color: var(--background-color);
 }
 
 .popup-holder {

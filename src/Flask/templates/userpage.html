@@ -4,15 +4,17 @@
     <title>BioFlask</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="This is a simple web application that performs pairwise sequence alignment using the Biopython library." />
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
     <!-- for testing only-->
     <link rel="stylesheet" href="../static/style.css" />
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
   </head>
 
   <body>
     <header class="head">
       <h1>Bio Flask</h1>
-      <h4>Powered by Flask</h4>
+      <h2>Powered by Flask</h2>
     </header>
     <main>
       <div class="username_container" style="display: flex">
@@ -28,6 +30,7 @@
         </form>
         <p>Note: Username tracks your files on the server.</p>
       </div>
+      <button id="installButton">Install as PWA App</button>
     </main>
     <script src="../static/script.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>

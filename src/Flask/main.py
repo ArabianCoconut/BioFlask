@@ -40,10 +40,13 @@ def start_app(host, port, debug=bool()) -> Flask:
 @app.route("/", methods=["GET", "POST"])
 def userpage():
     if request.method == "POST":
-        user = request.form["username"]
-        resp = make_response(render_template("index.html", userid=user))
-        resp.set_cookie("Username", user, samesite="Strict")
-        return resp
+        if request.form["username"] == "":
+            return render_template("userpage.html")
+        else:
+            user = request.form["username"]
+            resp = make_response(render_template("index.html", userid=user))
+            resp.set_cookie("Username", user, samesite="Strict")
+            return resp
     return render_template("userpage.html")
 
 
@@ -81,11 +84,21 @@ def results_api():
     * This is the route for the results text file.
     """
     USER_COOKIE = usercookie()
+    TextPath = f"static/results_{USER_COOKIE}.txt"
+    ResultPath = f"results_{USER_COOKIE}.txt"
 
-    if request.method == "GET" and os.path.exists(f"static/results_{USER_COOKIE}.txt"):
-        return redirect(url_for("static", filename=f"results_{USER_COOKIE}.txt"))
+    if request.method == "GET" and os.path.exists(TextPath):
+        return redirect(url_for("static", filename=ResultPath))
     else:
         return Response(status=404)
+
+
+@app.route("/static", methods=["GET"])
+def service_worker():
+    """
+    * This is the route for the service worker
+    """
+    return app.send_static_file("service-worker.js")
 
 
 @app.route("/api/delete", methods=["POST"])
@@ -107,9 +120,9 @@ def usercookie():
     return USER_COOKIE
 
 
-""" 
+"""
 To debug the application run the following command
 python main.py or Uncomment the following line
 """
-# if __name__ == "__main__":
-#     start_app("localhost", 5000, True)
+if __name__ == "__main__":
+    start_app("localhost", 5000, True)

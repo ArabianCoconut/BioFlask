@@ -101,6 +101,15 @@ function togglePopup() {
   }
 }
 
+function submit_button_username(){
+  const username = document.getElementById("username");
+  if (username.value.length > 0) {
+    console.log("Usercookie set successfully:"+ username.value);
+  } else {
+    alert("Please enter a username!");
+  }
+}
+
 window.onclick = function (event) {
   if (event.target === popupHolder) {
     togglePopup();
@@ -125,14 +134,27 @@ function handle(elem) {
 }
 
 window.onload = function () {
-  let frame = document.getElementById("iframe");
-  frame.style.height = window.innerHeight / 2 + "px";
-  frame.style.width = window.innerWidth / 2 + "px";
-
-  if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById("qr_btn").style.fontWeight = "normal";
-    document.getElementById("delete_btn").style.fontWeight = "normal";
+  try{
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/static/service-worker.js')
+        .then((registration) => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, (error) => {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+    }
+    let frame = document.getElementById("iframe");
+    frame.style.height = window.innerHeight / 2 + "px";
+    frame.style.width = window.innerWidth / 2 + "px";
+    if (navigator.userAgent.indexOf("Firefox") != -1) {
+      document.getElementById("qr_btn").style.fontWeight = "normal";
+      document.getElementById("delete_btn").style.fontWeight = "normal";
+    }
+  }catch(e){
+    console.log(e);
   }
+
 };
 
 function updateCols() {
@@ -146,3 +168,30 @@ function updateCols() {
 
 window.addEventListener("resize", updateCols);
 updateCols();
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (event) => {
+  // Prevent the mini-infobar from appearing on mobile
+  event.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = event;
+  // Update UI to notify the user they can install the PWA
+  const installButton = document.getElementById('installButton');
+  installButton.style.display = 'block';
+
+  installButton.addEventListener('click', () => {
+    // Hide the install button
+    installButton.style.display = 'none';
+    // Show the install prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+      deferredPrompt = null;
+    });
+  });
+});
