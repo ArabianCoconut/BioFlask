@@ -39,5 +39,16 @@
       </div>
     </div>
     <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script>
+      try {
+        window.onclick = function (event) {
+          if (event.target === popupHolder) {
+            togglePopup();
+          }
+        };
+      } catch (ReferenceError) {
+        console.warn("No popup element found!");
+      }
+    </script>
   </body>
 </html>

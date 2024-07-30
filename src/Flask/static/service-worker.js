@@ -4,7 +4,13 @@ const urlsToCache = [
   '/',
   '/static/style.css',
   '/static/script.js',
-  '/static/biopython_logo.svg',
+  '/static/images/dna_16px.png',
+  '/static/images/dna_24px.png',
+  '/static/images/dna_32px.png',
+  '/static/images/dna_64px.png',
+  '/static/images/dna_128px.png',
+  '/static/images/dna_256px.png',
+  '/static/images/dna_512px.png'
 ];
 
 self.addEventListener('install', (event) => {

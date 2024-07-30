@@ -35,7 +35,7 @@ def sequence_alignment(target: str, query: str, mode: str):
     alignments: object = PairwiseAligner()
     alignments.mode = mode
     alignments = alignments.align(target, query)
-    results: list = []    
+    results: list = []
     with open(FilePath, "w", encoding="UTF-8") as file:
         for _a in alignments:
             results.append(_a)
