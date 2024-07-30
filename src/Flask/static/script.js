@@ -1,6 +1,3 @@
-if (window.matchMedia('(display-mode: standalone)').matches) {
-  document.getElementById('installButton').style.display = 'none';
-}
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (event) => {
   // Prevent the mini-infobar from appearing on mobile
@@ -28,7 +25,41 @@ window.addEventListener('beforeinstallprompt', (event) => {
   });
 });
 
-
+onload = () => {
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('installButton').style.display = 'none';
+  }
+  
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+  
+        registration.onupdatefound = () => {
+          const installingWorker = registration.installing;
+          installingWorker.onstatechange = () => {
+            if (installingWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                // New update available
+                console.log('New service worker available, activating immediately.');
+                installingWorker.postMessage({ action: 'skipWaiting' });
+              }
+            }
+          };
+        };
+      })
+      .catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+  
+    let refreshing;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
+    });
+  }
+}
 
 function clear_button() {
   const element = document.getElementById("query");
