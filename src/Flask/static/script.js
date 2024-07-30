@@ -65,9 +65,8 @@ onload = () => {
       refreshing = true;
     });
   }
-  document.addEventListener('DOMContentLoaded', hideInstallButtonIfStandalone);
+  document.addEventListener('DOMContentLoaded', hideInstallButtonIfPWA);
 }
-
 function clear_button() {
   const element = document.getElementById("query");
   element.value = "";
