@@ -60,3 +60,13 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+// when offline, return alert
+self.addEventListener('fetch', event => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .catch(() => alert("You are offline wait for network connection"))
+    );
+  }
+});

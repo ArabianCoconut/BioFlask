@@ -160,30 +160,19 @@ function handle(elem) {
   }
 }
 
-window.onload = function () {
-  try{
-    // Register service worker for PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/static/service-worker.js')
-        .then((registration) => {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, (error) => {
-          console.log('ServiceWorker registration failed: ', error);
-        });
-    }
-    let frame = document.getElementById("iframe");
-    frame.style.height = window.innerHeight / 2 + "px";
-    frame.style.width = window.innerWidth / 2 + "px";
-    if (navigator.userAgent.indexOf("Firefox") != -1) {
-      document.getElementById("qr_btn").style.fontWeight = "normal";
-      document.getElementById("delete_btn").style.fontWeight = "normal";
-    }
-  }catch(e){
-    console.log(e);
+if (window.location.pathname === "/results") {
+  result_resize();
+}
+
+function result_resize() {
+  let frame = document.getElementById("iframe");
+  frame.style.height = window.innerHeight / 2 + "px";
+  frame.style.width = window.innerWidth / 2 + "px";
+  if (navigator.userAgent.indexOf("Firefox") !== -1) {
+    document.getElementById("qr_btn").style.fontWeight = "normal";
+    document.getElementById("delete_btn").style.fontWeight = "normal";
   }
-
-};
-
+}
 function updateCols() {
   if (window.innerWidth < 600) {
     let text_areas = document.querySelectorAll("textarea");
