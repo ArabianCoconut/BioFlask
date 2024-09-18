@@ -7,7 +7,7 @@ EXPOSE 5000
 
 #Flask Environment Variables
 ENV FLASK_APP=main.py
-ENV FLASK_RUN_HOST=host.docker.internal
+ENV FLASK_RUN_HOST=localhost
 ENV FLASK_RUN_PORT=5000
 ENV FLASK_ENV=development
 
